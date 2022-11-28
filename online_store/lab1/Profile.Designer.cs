@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace lab1
 {
     partial class Profile
@@ -118,6 +120,11 @@ namespace lab1
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void buttonAddBalance_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

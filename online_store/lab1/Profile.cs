@@ -17,13 +17,9 @@ namespace lab1
             InitializeComponent();
         }
 
-        private void buttonAddBalance_Click(object sender, EventArgs e)
+        private void Profile_Load(object sender, EventArgs e)
         {
 
-        }
-        protected override void OnFormClosed(FormClosedEventArgs e)
-        {
-            Environment.Exit(1);
         }
     }
 }
