@@ -152,6 +152,7 @@ namespace lab1
             this.buttonToBuy.TabIndex = 4;
             this.buttonToBuy.Text = "За покупками";
             this.buttonToBuy.UseVisualStyleBackColor = true;
+            this.buttonToBuy.Click += new System.EventHandler(this.buttonToBuy_Click);
             // 
             // Profile
             // 

@@ -54,5 +54,12 @@ namespace lab1
             }
             f.Close();
         }
+
+        private void buttonToBuy_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainPage toMain = new MainPage();
+            toMain.Show();
+        }
     }
 }

@@ -24,15 +24,16 @@ namespace lab1
         {
             bool isPass = true, isLog = true;
             var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
-            if (passField_reg.Text.Length < 5 || !passField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(passField_reg.Text) || (passField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(passField_reg.Text, @"\p{L}"))
+            if (passField_reg.Text.Length < 5 || !isLow((passField_reg.Text)) || hasSymbols.IsMatch(passField_reg.Text) || (passField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(passField_reg.Text, @"\p{L}"))
             {
                 error.Text = "Некорректные символы для пароля, пароль должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
                 isPass = false;
             }
-            if (loginField_reg.Text.Length < 5 || !loginField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(loginField_reg.Text) || (loginField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(loginField_reg.Text, @"\p{L}"))
+            if (loginField_reg.Text.Length < 5 || !isLow((loginField_reg.Text)) || hasSymbols.IsMatch(loginField_reg.Text) || (loginField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(loginField_reg.Text, @"\p{L}"))
             {
                 error.Text = "Некорректные символы для логина, логин должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
                 isLog = false;
+                error.Text = (isLow((loginField_reg.Text))).ToString();
             }
             if (isLog && isPass)
             {
@@ -52,14 +53,22 @@ namespace lab1
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        protected bool isLow(string s)
+        {
+            bool isLow = true;
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (!Char.IsLower(s[i]) && !Char.IsDigit(s[i]))
+                {
+                    isLow = false;
+                }
+            }
+            return isLow;
         }
     }
 }
