@@ -24,14 +24,14 @@ namespace lab1
         {
             bool isPass = true, isLog = true;
             var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
-            if (passField_reg.Text.Length <= 5 || !passField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(passField_reg.Text) || (passField_reg.Text.IndexOf(' ') >= 0))
+            if (passField_reg.Text.Length < 5 || !passField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(passField_reg.Text) || (passField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(passField_reg.Text, @"\p{L}"))
             {
-                error.Text = "Некорректные символы для пароля, пароль должен быть больше 5 символов в нижнем регистре и не содержать специальных символов";
+                error.Text = "Некорректные символы для пароля, пароль должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
                 isPass = false;
             }
-            if (loginField_reg.Text.Length <= 5 || !loginField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(loginField_reg.Text) || (loginField_reg.Text.IndexOf(' ') >= 0))
+            if (loginField_reg.Text.Length < 5 || !loginField_reg.Text.All(char.IsLower) || hasSymbols.IsMatch(loginField_reg.Text) || (loginField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(loginField_reg.Text, @"\p{L}"))
             {
-                error.Text = "Некорректные символы для логина, логин должен быть больше 5 символов в нижнем регистре и не содержать специальных символов";
+                error.Text = "Некорректные символы для логина, логин должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
                 isLog = false;
             }
             if (isLog && isPass)

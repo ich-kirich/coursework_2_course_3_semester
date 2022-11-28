@@ -62,7 +62,7 @@ namespace lab1
             // error
             // 
             this.error.AutoSize = true;
-            this.error.Location = new System.Drawing.Point(45, 113);
+            this.error.Location = new System.Drawing.Point(12, 117);
             this.error.Name = "error";
             this.error.Size = new System.Drawing.Size(0, 13);
             this.error.TabIndex = 10;

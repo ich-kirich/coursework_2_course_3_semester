@@ -19,16 +19,6 @@ namespace lab1
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             errorInput.Text = "";
@@ -39,11 +29,6 @@ namespace lab1
             this.Hide();
             RegistrationForm registration = new RegistrationForm();
             registration.Show();
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void toMain_Click(object sender, EventArgs e)
@@ -68,8 +53,8 @@ namespace lab1
                     {
                         errorInput.Text = "";
                         this.Hide();
-                        MainPage to_main = new MainPage();
-                        to_main.Show();
+                        Profile to_profile = new Profile();
+                        to_profile.Show();
                     }
                 }
                 errorInput.Text = "Неверный логин или пароль";
@@ -81,11 +66,6 @@ namespace lab1
                     File.AppendAllText(path, inputLogin);
                 }
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)

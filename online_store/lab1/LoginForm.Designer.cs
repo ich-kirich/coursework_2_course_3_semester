@@ -61,7 +61,6 @@ namespace lab1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(605, 516);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // toMain
             // 
@@ -84,7 +83,6 @@ namespace lab1
             this.label3.TabIndex = 6;
             this.label3.Text = "Нет аккаунта?";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click_1);
             // 
             // toRegistration
             // 
@@ -116,7 +114,6 @@ namespace lab1
             this.re.Size = new System.Drawing.Size(76, 24);
             this.re.TabIndex = 3;
             this.re.Text = "Пароль";
-            this.re.Click += new System.EventHandler(this.label3_Click);
             // 
             // loginField
             // 
@@ -158,7 +155,6 @@ namespace lab1
             this.label1.TabIndex = 0;
             this.label1.Text = "Авторизация";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // errorInput
             // 
