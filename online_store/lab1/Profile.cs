@@ -27,8 +27,29 @@ namespace lab1
             }
             labelBalance.Text = balance.ToString();
             TextBoxAddBalance.Clear();
+            string[] usersBalance = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+            string[] currentUser = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
+            for (int i = 0; i < usersBalance.Length; i++)
+            {
+                string[] line = usersBalance[i].Split(' ');
+                if (line[0] == currentUser[0])
+                {
+                    string toSaveBalance = currentUser[0] + " " + balance;
+                    string str = string.Empty;
+                    using (StreamReader reader = File.OpenText(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                    {
+                        str = reader.ReadToEnd();
+                    }
+                    str = str.Replace(usersBalance[i], toSaveBalance);
+
+                    using (StreamWriter file = new StreamWriter(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                    {
+                        file.Write(str);
+                    }
+                }
+            }
         }
-        public bool StringIsDigits(string s)
+        private bool StringIsDigits(string s)
         {
             foreach (var item in s)
             {
@@ -53,6 +74,16 @@ namespace lab1
                 labelLoginUser.Text = f.ReadLine();
             }
             f.Close();
+            string[] usersBalance = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+            string[] currentUser = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
+            for (int i = 0; i < usersBalance.Length; i++)
+            {
+                string[] line = usersBalance[i].Split(' ');
+                if (line[0] == currentUser[0])
+                {
+                    labelBalance.Text = line[1];
+                }
+            }
         }
 
         private void buttonToBuy_Click(object sender, EventArgs e)
@@ -60,6 +91,10 @@ namespace lab1
             this.Hide();
             MainPage toMain = new MainPage();
             toMain.Show();
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
         }
     }
 }

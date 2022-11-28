@@ -47,6 +47,12 @@ namespace lab1
                     string text = "\n" + loginIser + " " + passwordUser + "\n";
                     File.AppendAllText(path, text);
                 }
+                path = Directory.GetCurrentDirectory() + @"\files\usersBalance.txt";
+                string toSaveBalance = loginIser + " " + 1000 + "\n";
+                if (File.Exists(path))
+                {
+                    File.WriteAllText(path, toSaveBalance);
+                }
                 this.Hide();
                 LoginForm login = new LoginForm();
                 login.Show();
