@@ -1,2 +1,2 @@
-# coursework_C-
-It is my c# courseworker
+# coursework_2_course_3_semester
+It is my С# courseworker
