@@ -38,6 +38,7 @@ namespace lab1
             StreamReader f = new StreamReader(Directory.GetCurrentDirectory() + @"\files\users.txt");
             if (inputLogin == "admin" && inputPassword == "admin")
             {
+                addToLocalStorage(inputLogin);
                 errorInput.Text = "";
                 this.Hide();
                 adminPanel to_adminPanel = new adminPanel();
@@ -51,6 +52,7 @@ namespace lab1
                     string[] lineFileArray = lineFile.Split(' ');
                     if (lineFileArray[0] == inputLogin && lineFileArray[1] == inputPassword)
                     {
+                        addToLocalStorage(inputLogin);
                         errorInput.Text = "";
                         this.Hide();
                         Profile to_profile = new Profile();
@@ -59,12 +61,6 @@ namespace lab1
                 }
                 errorInput.Text = "Неверный логин или пароль";
                 f.Close();
-                string path = Directory.GetCurrentDirectory() + @"\files\localStorage.txt";
-                if (File.Exists(path))
-                {
-                    File.WriteAllText(path, string.Empty);
-                    File.AppendAllText(path, inputLogin);
-                }
             }
         }
 
@@ -76,6 +72,15 @@ namespace lab1
         private void loginField_TextChanged(object sender, EventArgs e)
         {
             errorInput.Text = "";
+        }
+        private void addToLocalStorage(string inputLogin)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\files\localStorage.txt";
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+                File.AppendAllText(path, inputLogin);
+            }
         }
     }
 }

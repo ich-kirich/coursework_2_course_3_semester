@@ -46,6 +46,7 @@ namespace lab1
                     {
                         file.Write(str);
                     }
+                    break;
                 }
             }
         }
@@ -95,6 +96,30 @@ namespace lab1
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void buttonWasted_Click(object sender, EventArgs e)
+        {
+            int wasted_count = 0, wasted_money = 0;
+            string[] usersWasted = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersWasted.txt");
+            for (int i = 0; i < usersWasted.Length; i++)
+            {
+                string[] line = usersWasted[i].Split(' ');
+                if (line[0] == labelLoginUser.Text)
+                {
+                    wasted_count = Convert.ToInt32(line[1]);
+                    wasted_money = Convert.ToInt32(line[2]);
+                }
+            }
+            MessageBox.Show(
+                labelLoginUser.Text + ", Вы наш любимый покупатель" + "\r\n" + 
+                "Всего куплено товаров: " + wasted_count + " шт." + "\r\n" + "Всего купелно на " + wasted_money + " р.",
+                "О покупках",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.None,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly
+            );
         }
     }
 }

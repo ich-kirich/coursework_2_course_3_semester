@@ -39,10 +39,10 @@ namespace lab1
             this.labelBalance = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonToLogin = new System.Windows.Forms.Button();
-            this.buttonWasted = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.labelLoginUser = new System.Windows.Forms.Label();
             this.buttonToBuy = new System.Windows.Forms.Button();
+            this.buttonWasted = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -117,15 +117,6 @@ namespace lab1
             this.buttonToLogin.UseVisualStyleBackColor = true;
             this.buttonToLogin.Click += new System.EventHandler(this.buttonToLogin_Click);
             // 
-            // buttonWasted
-            // 
-            this.buttonWasted.Location = new System.Drawing.Point(286, 402);
-            this.buttonWasted.Name = "buttonWasted";
-            this.buttonWasted.Size = new System.Drawing.Size(150, 36);
-            this.buttonWasted.TabIndex = 4;
-            this.buttonWasted.Text = "Всего куплено";
-            this.buttonWasted.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -153,6 +144,16 @@ namespace lab1
             this.buttonToBuy.Text = "За покупками";
             this.buttonToBuy.UseVisualStyleBackColor = true;
             this.buttonToBuy.Click += new System.EventHandler(this.buttonToBuy_Click);
+            // 
+            // buttonWasted
+            // 
+            this.buttonWasted.Location = new System.Drawing.Point(286, 402);
+            this.buttonWasted.Name = "buttonWasted";
+            this.buttonWasted.Size = new System.Drawing.Size(150, 36);
+            this.buttonWasted.TabIndex = 4;
+            this.buttonWasted.Text = "Всего куплено";
+            this.buttonWasted.UseVisualStyleBackColor = true;
+            this.buttonWasted.Click += new System.EventHandler(this.buttonWasted_Click);
             // 
             // Profile
             // 
@@ -189,9 +190,9 @@ namespace lab1
         private System.Windows.Forms.Label labelBalance;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonToLogin;
-        private System.Windows.Forms.Button buttonWasted;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelLoginUser;
         private System.Windows.Forms.Button buttonToBuy;
+        private System.Windows.Forms.Button buttonWasted;
     }
 }

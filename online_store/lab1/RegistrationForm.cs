@@ -33,7 +33,6 @@ namespace lab1
             {
                 error.Text = "Некорректные символы для логина, логин должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
                 isLog = false;
-                error.Text = (isLow((loginField_reg.Text))).ToString();
             }
             if (isLog && isPass)
             {
@@ -51,7 +50,13 @@ namespace lab1
                 string toSaveBalance = loginIser + " " + 1000 + "\n";
                 if (File.Exists(path))
                 {
-                    File.WriteAllText(path, toSaveBalance);
+                    File.AppendAllText(path, toSaveBalance);
+                }
+                path = Directory.GetCurrentDirectory() + @"\files\usersWasted.txt";
+                string toSaveWasted = loginIser + " " + 0 + " " + 0 + "\n";
+                if (File.Exists(path))
+                {
+                    File.AppendAllText(path, toSaveWasted);
                 }
                 this.Hide();
                 LoginForm login = new LoginForm();
