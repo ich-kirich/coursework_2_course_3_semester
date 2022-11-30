@@ -120,6 +120,11 @@ namespace lab1
 
         }
 
+        private void picturePokypka_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void order_Click(object sender, EventArgs e)
         {
             curentLogin = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");

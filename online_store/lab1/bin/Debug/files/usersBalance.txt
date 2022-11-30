@@ -1,2 +1,2 @@
 asswecan 1000
-botik 1000
+botik 5200

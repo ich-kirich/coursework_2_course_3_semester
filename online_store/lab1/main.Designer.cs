@@ -29,21 +29,22 @@ namespace lab1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.basket = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.профильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.личныйКабинетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -53,31 +54,30 @@ namespace lab1
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listOfGoods = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.loginField_reg = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.loginField_reg = new System.Windows.Forms.TextBox();
+            this.listOfGoods = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureGood = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGood)).BeginInit();
             this.SuspendLayout();
             // 
             // basket
             // 
-            this.basket.Location = new System.Drawing.Point(603, 13);
+            this.basket.Location = new System.Drawing.Point(614, 24);
             this.basket.Name = "basket";
             this.basket.Size = new System.Drawing.Size(128, 41);
             this.basket.TabIndex = 7;
             this.basket.Text = "Перейти в корзину";
             this.basket.UseVisualStyleBackColor = true;
-            this.basket.Visible = false;
             this.basket.Click += new System.EventHandler(this.basket_Click);
             // 
             // menuStrip1
@@ -102,14 +102,14 @@ namespace lab1
             // личныйКабинетToolStripMenuItem
             // 
             this.личныйКабинетToolStripMenuItem.Name = "личныйКабинетToolStripMenuItem";
-            this.личныйКабинетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.личныйКабинетToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.личныйКабинетToolStripMenuItem.Text = "Личный кабинет";
             this.личныйКабинетToolStripMenuItem.Click += new System.EventHandler(this.личныйКабинетToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -162,6 +162,16 @@ namespace lab1
             this.tableLayoutPanel1.Size = new System.Drawing.Size(110, 535);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Категория товара";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -206,16 +216,6 @@ namespace lab1
             this.label6.Text = "Молочные изделия";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(3, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Категория товара";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -226,17 +226,6 @@ namespace lab1
             this.label7.TabIndex = 12;
             this.label7.Text = "Морепродукты";
             this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label8.Location = new System.Drawing.Point(3, 202);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Зелень";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -259,6 +248,17 @@ namespace lab1
             this.label10.TabIndex = 12;
             this.label10.Text = "Овощи";
             this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label8.Location = new System.Drawing.Point(3, 202);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 13);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Зелень";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label11
             // 
@@ -351,14 +351,13 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.pictureGood);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.loginField_reg);
-            this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.listOfGoods);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
@@ -369,14 +368,58 @@ namespace lab1
             this.panel1.Size = new System.Drawing.Size(771, 535);
             this.panel1.TabIndex = 11;
             // 
-            // label2
+            // label23
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Тип товара";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(24, 127);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(94, 13);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "Цена за покупку:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(24, 86);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(110, 13);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Введите количество";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(69, 52);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(13, 13);
+            this.label24.TabIndex = 13;
+            this.label24.Text = "0";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(121, 127);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(13, 13);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(27, 51);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(36, 13);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Цена:";
+            // 
+            // loginField_reg
+            // 
+            this.loginField_reg.Location = new System.Drawing.Point(140, 83);
+            this.loginField_reg.Name = "loginField_reg";
+            this.loginField_reg.Size = new System.Drawing.Size(202, 20);
+            this.loginField_reg.TabIndex = 11;
+            this.loginField_reg.TextChanged += new System.EventHandler(this.loginField_reg_TextChanged);
             // 
             // listOfGoods
             // 
@@ -388,85 +431,36 @@ namespace lab1
             this.listOfGoods.Size = new System.Drawing.Size(202, 21);
             this.listOfGoods.TabIndex = 9;
             // 
-            // label19
+            // label2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(24, 52);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 13);
-            this.label19.TabIndex = 10;
-            this.label19.Text = "Количество";
-            // 
-            // loginField_reg
-            // 
-            this.loginField_reg.Location = new System.Drawing.Point(140, 133);
-            this.loginField_reg.Name = "loginField_reg";
-            this.loginField_reg.Size = new System.Drawing.Size(202, 20);
-            this.loginField_reg.TabIndex = 11;
-            this.loginField_reg.TextChanged += new System.EventHandler(this.loginField_reg_TextChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(27, 101);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(36, 13);
-            this.label20.TabIndex = 12;
-            this.label20.Text = "Цена:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(121, 177);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(13, 13);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "0";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(24, 136);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(110, 13);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Введите количество";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(24, 177);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(94, 13);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Цена за покупку:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(69, 102);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 13);
-            this.label24.TabIndex = 13;
-            this.label24.Text = "0";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Тип товара";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(24, 213);
+            this.button1.Location = new System.Drawing.Point(24, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 41);
             this.button1.TabIndex = 7;
             this.button1.Text = "Купить";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.basket_Click);
             // 
-            // textBox1
+            // pictureGood
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(202, 20);
-            this.textBox1.TabIndex = 11;
+            this.pictureGood.ErrorImage = null;
+            this.pictureGood.Image = ((System.Drawing.Image)(resources.GetObject("pictureGood.Image")));
+            this.pictureGood.ImageLocation = "";
+            this.pictureGood.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureGood.InitialImage")));
+            this.pictureGood.Location = new System.Drawing.Point(30, 252);
+            this.pictureGood.Name = "pictureGood";
+            this.pictureGood.Size = new System.Drawing.Size(213, 154);
+            this.pictureGood.TabIndex = 16;
+            this.pictureGood.TabStop = false;
             // 
             // MainPage
             // 
@@ -486,6 +480,7 @@ namespace lab1
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureGood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,7 +512,6 @@ namespace lab1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox listOfGoods;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
@@ -526,7 +520,7 @@ namespace lab1
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox loginField_reg;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureGood;
     }
 }
 

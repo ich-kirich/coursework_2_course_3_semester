@@ -55,6 +55,7 @@ namespace lab1
             this.picturePokypka.Size = new System.Drawing.Size(213, 154);
             this.picturePokypka.TabIndex = 5;
             this.picturePokypka.TabStop = false;
+            this.picturePokypka.Click += new System.EventHandler(this.picturePokypka_Click);
             // 
             // deletePokypky
             // 
