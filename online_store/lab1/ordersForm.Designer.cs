@@ -46,6 +46,7 @@ namespace lab1
             this.listOfPokypok.Name = "listOfPokypok";
             this.listOfPokypok.Size = new System.Drawing.Size(202, 21);
             this.listOfPokypok.TabIndex = 1;
+            this.listOfPokypok.SelectedIndexChanged += new System.EventHandler(this.listOfPokypok_SelectedIndexChanged_1);
             // 
             // picturePokypka
             // 

@@ -25,31 +25,31 @@ namespace lab1
             switch (selectedCategory)
             {
                 case "Рыбы":
-                    listOfGoods.Items.AddRange(new string["ass"]);
+                    listOfGoods.Items.AddRange(new string[] { "Тунец", "Минтай", "Белуга", "Щука", "Вобла", "Карась", "Треска" });
                     break;
                 case "Хлебобулочные":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\pistol.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Ржаной хлеб", "Белый хлеб", "Зерновой хлеб", "Лаваш", "Плоский хлеб", "Тортилья", "Бисквит" });
                     break;
                 case "Мясо":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\rifle.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Телятина", "Печень", "Стейк", "Говядина", "Свинина", "Конина", "Дичь" });
                     break;
-                case "Молочные изделия":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\machine-gun.jpg");
+                case "Молочные продукты":
+                    listOfGoods.Items.AddRange(new string[] { "Творог", "Йогурт", "Кефир", "Сметана", "Кумыс", "Сливки", "Ряженка" });
                     break;
                 case "Морепродукты":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\grenade-gun.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Моллюски", "Устрицы", "Мидии", "Осьминоги", "Кальмары", "Креветки", "Крабы" });
                     break;
                 case "Яйца":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\grenade.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Утиные", "Гусиные", "Индюшачьи", "Перепелиные", "Куриные", "Страусиные", "Фазаньи" });
                     break;
                 case "Овощи":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\balls.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Авокадо", "Картофель", "Томат", "Тыква", "Свекла", "Красный лук", "Огурец" });
                     break;
                 case "Зелень":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\glasses.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Укроп", "Петрушка", "Зеленый лук", "Кинза", "Базилик", "Шпинатная зелень", "Пряные травы" });
                     break;
                 case "Фрукты":
-                    picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\accumulator.jpg");
+                    listOfGoods.Items.AddRange(new string[] { "Банан", "Апельсин", "Мандарин", "Яблоко", "Слива", "Гранат", "Ананас" });
                     break;
                 case "Ягоды":
                     picturePokypka.Image = Image.FromFile(System.IO.Directory.GetCurrentDirectory() + @"\img\aim.jpg");

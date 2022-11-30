@@ -115,6 +115,11 @@ namespace lab1
             toMain.Show();
         }
 
+        private void listOfPokypok_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void order_Click(object sender, EventArgs e)
         {
             curentLogin = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
