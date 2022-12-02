@@ -58,7 +58,7 @@ namespace lab1
             this.loginField_reg = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.priceGood = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.pictureGood = new System.Windows.Forms.PictureBox();
@@ -168,14 +168,14 @@ namespace lab1
             this.label21.TabIndex = 13;
             this.label21.Text = "0";
             // 
-            // label24
+            // priceGood
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(69, 52);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(13, 13);
-            this.label24.TabIndex = 13;
-            this.label24.Text = "0";
+            this.priceGood.AutoSize = true;
+            this.priceGood.Location = new System.Drawing.Point(69, 52);
+            this.priceGood.Name = "priceGood";
+            this.priceGood.Size = new System.Drawing.Size(13, 13);
+            this.priceGood.TabIndex = 13;
+            this.priceGood.Text = "0";
             // 
             // label22
             // 
@@ -265,7 +265,7 @@ namespace lab1
             this.panel1.Controls.Add(this.pictureGood);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label24);
+            this.panel1.Controls.Add(this.priceGood);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.loginField_reg);
@@ -324,7 +324,7 @@ namespace lab1
         private System.Windows.Forms.TextBox loginField_reg;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label priceGood;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.PictureBox pictureGood;

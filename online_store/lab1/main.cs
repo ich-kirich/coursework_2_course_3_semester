@@ -13,7 +13,7 @@ namespace lab1
 {
     public partial class MainPage : Form
     {
-        private string selectedCategory, selectedGood;
+        private string selectedCategory;
         private Products product = new Products();
         public MainPage()
         {
@@ -24,7 +24,9 @@ namespace lab1
 
         private void listOfGoods_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedGood = listOfGoods.SelectedItem.ToString();
+            product.setNameProduct(listOfGoods.SelectedItem.ToString());
+            product.selectProduct();
+            priceGood.Text = product.getPrice().ToString();
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -56,6 +58,7 @@ namespace lab1
 
         private void chandeListGoods(string selectedCategory)
         {
+            priceGood.Text = "0";
             listOfGoods.Items.Clear();
             product.setCategoryProduct(selectedCategory);
             product.selecteCategotyProduct();

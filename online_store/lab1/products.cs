@@ -12,26 +12,18 @@ namespace lab1
     {
         private string pictureProduct;
         private string categoryProduct;
+        private string nameProduct;
         private string[] typesProducts;
+        private int price = 0;
 
         public Products()
         {
 
         } // инициализация списка покупок
 
-        public string[] setTypesProducts(string[] typesProducts_inp)
-        {
-            return typesProducts = typesProducts_inp;
-        }
-
         public string[] getTypesProducts()
         {
             return typesProducts;
-        }
-
-        public string setPictureProduct(string pictureProduct_inp)
-        {
-            return pictureProduct = pictureProduct_inp;
         }
         public string getPictureProduct()
         {
@@ -42,9 +34,15 @@ namespace lab1
         {
             return categoryProduct = categoryProduct_inp;
         }
-        public string getCategoryProduct()
+
+        public string setNameProduct(string nameProduct_inp)
         {
-            return categoryProduct;
+            return nameProduct = nameProduct_inp;
+        }
+
+        public int getPrice()
+        {
+            return price;
         }
 
         public void selecteCategotyProduct()
@@ -121,5 +119,24 @@ namespace lab1
                     break;
             }
         } // выбор категории товара
+
+        public void selectProduct()
+        {
+            for (int i = 0; i < typesProducts.Length; i++)
+            {
+                if (nameProduct == typesProducts[0])
+                {
+                    price = 100;
+                }
+                else if (nameProduct == typesProducts[1])
+                {
+                    price = 200;
+                }
+                else if (nameProduct == typesProducts[2])
+                {
+                    price = 300;
+                }
+            }
+        }
     }
 }
