@@ -57,7 +57,8 @@ namespace lab1
         private void chandeListGoods(string selectedCategory)
         {
             listOfGoods.Items.Clear();
-            product.selecteCategotyProduct(selectedCategory, product);
+            product.setCategoryProduct(selectedCategory);
+            product.selecteCategotyProduct();
             pictureGood.Image = Image.FromFile(product.getPictureProduct());
             listOfGoods.Items.AddRange(product.getTypesProducts());
         }

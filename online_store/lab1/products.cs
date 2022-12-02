@@ -11,6 +11,7 @@ namespace lab1
     class Products
     {
         private string pictureProduct;
+        private string categoryProduct;
         private string[] typesProducts;
 
         public Products()
@@ -37,9 +38,18 @@ namespace lab1
             return pictureProduct;
         }
 
-        public void selecteCategotyProduct(string category, Products product)
+        public string setCategoryProduct(string categoryProduct_inp)
         {
-            switch (category)
+            return categoryProduct = categoryProduct_inp;
+        }
+        public string getCategoryProduct()
+        {
+            return categoryProduct;
+        }
+
+        public void selecteCategotyProduct()
+        {
+            switch (categoryProduct)
             {
                 case "Рыбы":
                     pictureProduct = Directory.GetCurrentDirectory() + @"\img\fish.jpg";
