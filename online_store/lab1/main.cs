@@ -24,6 +24,8 @@ namespace lab1
 
         private void listOfGoods_SelectedIndexChanged(object sender, EventArgs e)
         {
+            countProduct.Text = "";
+            resultBuy.Text = "0";
             product.setNameProduct(listOfGoods.SelectedItem.ToString());
             product.selectProduct();
             priceGood.Text = product.getPrice().ToString();
@@ -51,14 +53,11 @@ namespace lab1
              Environment.Exit(1);
         }
 
-        private void loginField_reg_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void chandeListGoods(string selectedCategory)
         {
             priceGood.Text = "0";
+            countProduct.Text = "";
+            resultBuy.Text = "0";
             listOfGoods.Items.Clear();
             product.setCategoryProduct(selectedCategory);
             product.selecteCategotyProduct();
@@ -77,6 +76,40 @@ namespace lab1
             {
                 selectedCategory = listView1.Items[intselectedindex].Text;
                 chandeListGoods(selectedCategory);
+            }
+        }
+
+        private void calculatePrice_Click(object sender, EventArgs e)
+        {
+            if (countProduct.Text.All(char.IsDigit))
+            {
+                if (Convert.ToInt32(countProduct.Text) > 100)
+                {
+                    MessageBox.Show(
+                        "Нельзя купить товаров одного типа более чем на 100 штук",
+                        "Ограничение на кол-во покупаемого товара",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+                else
+                {
+                    int resultPrice = product.resultPrice(Convert.ToInt32(countProduct.Text));
+                    resultBuy.Text = resultPrice.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Введите целое число",
+                    "Ошибка ввода!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
             }
         }
     }

@@ -30,23 +30,23 @@ namespace lab1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem(new string[] {
             "Рыбы"}, -1, System.Drawing.Color.Empty, System.Drawing.SystemColors.Window, null);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Хлебобулочные");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Мясо");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Молочные продукты");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Морепродукты");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Яйца");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Овощи");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Зелень");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Фрукты");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Ягоды");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Грибы");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Орехи");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Сладости");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Соки");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Газировка");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Фастфуд");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Хлебобулочные");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Мясо");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Молочные продукты");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("Морепродукты");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("Яйца");
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("Овощи");
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("Зелень");
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("Фрукты");
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("Ягоды");
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("Грибы");
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("Орехи");
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("Сладости");
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("Соки");
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem("Газировка");
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem("Фастфуд");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.профильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.личныйКабинетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,9 +55,9 @@ namespace lab1
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listOfGoods = new System.Windows.Forms.ComboBox();
-            this.loginField_reg = new System.Windows.Forms.TextBox();
+            this.countProduct = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.resultBuy = new System.Windows.Forms.Label();
             this.priceGood = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@ namespace lab1
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.calculatePrice = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGood)).BeginInit();
@@ -142,13 +143,12 @@ namespace lab1
             this.listOfGoods.Size = new System.Drawing.Size(202, 21);
             this.listOfGoods.TabIndex = 9;
             // 
-            // loginField_reg
+            // countProduct
             // 
-            this.loginField_reg.Location = new System.Drawing.Point(140, 83);
-            this.loginField_reg.Name = "loginField_reg";
-            this.loginField_reg.Size = new System.Drawing.Size(202, 20);
-            this.loginField_reg.TabIndex = 11;
-            this.loginField_reg.TextChanged += new System.EventHandler(this.loginField_reg_TextChanged);
+            this.countProduct.Location = new System.Drawing.Point(140, 83);
+            this.countProduct.Name = "countProduct";
+            this.countProduct.Size = new System.Drawing.Size(202, 20);
+            this.countProduct.TabIndex = 11;
             // 
             // label20
             // 
@@ -159,14 +159,14 @@ namespace lab1
             this.label20.TabIndex = 12;
             this.label20.Text = "Цена:";
             // 
-            // label21
+            // resultBuy
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(121, 127);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(13, 13);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "0";
+            this.resultBuy.AutoSize = true;
+            this.resultBuy.Location = new System.Drawing.Point(121, 127);
+            this.resultBuy.Name = "resultBuy";
+            this.resultBuy.Size = new System.Drawing.Size(13, 13);
+            this.resultBuy.TabIndex = 13;
+            this.resultBuy.Text = "0";
             // 
             // priceGood
             // 
@@ -213,39 +213,39 @@ namespace lab1
             this.columnHeader1});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
-            listViewItem5.StateImageIndex = 0;
-            listViewItem6.StateImageIndex = 0;
-            listViewItem7.StateImageIndex = 0;
-            listViewItem8.StateImageIndex = 0;
-            listViewItem9.StateImageIndex = 0;
-            listViewItem10.StateImageIndex = 0;
-            listViewItem11.StateImageIndex = 0;
-            listViewItem12.StateImageIndex = 0;
-            listViewItem13.StateImageIndex = 0;
-            listViewItem14.StateImageIndex = 0;
-            listViewItem15.StateImageIndex = 0;
-            listViewItem16.StateImageIndex = 0;
+            listViewItem17.StateImageIndex = 0;
+            listViewItem18.StateImageIndex = 0;
+            listViewItem19.StateImageIndex = 0;
+            listViewItem20.StateImageIndex = 0;
+            listViewItem21.StateImageIndex = 0;
+            listViewItem22.StateImageIndex = 0;
+            listViewItem23.StateImageIndex = 0;
+            listViewItem24.StateImageIndex = 0;
+            listViewItem25.StateImageIndex = 0;
+            listViewItem26.StateImageIndex = 0;
+            listViewItem27.StateImageIndex = 0;
+            listViewItem28.StateImageIndex = 0;
+            listViewItem29.StateImageIndex = 0;
+            listViewItem30.StateImageIndex = 0;
+            listViewItem31.StateImageIndex = 0;
+            listViewItem32.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30,
+            listViewItem31,
+            listViewItem32});
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(191, 535);
@@ -262,13 +262,14 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.calculatePrice);
             this.panel1.Controls.Add(this.pictureGood);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.priceGood);
-            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.resultBuy);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.loginField_reg);
+            this.panel1.Controls.Add(this.countProduct);
             this.panel1.Controls.Add(this.listOfGoods);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button1);
@@ -278,6 +279,16 @@ namespace lab1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(691, 535);
             this.panel1.TabIndex = 11;
+            // 
+            // calculatePrice
+            // 
+            this.calculatePrice.Location = new System.Drawing.Point(197, 118);
+            this.calculatePrice.Name = "calculatePrice";
+            this.calculatePrice.Size = new System.Drawing.Size(131, 30);
+            this.calculatePrice.TabIndex = 17;
+            this.calculatePrice.Text = "Посчитать стоимость";
+            this.calculatePrice.UseVisualStyleBackColor = true;
+            this.calculatePrice.Click += new System.EventHandler(this.calculatePrice_Click);
             // 
             // panel2
             // 
@@ -321,9 +332,9 @@ namespace lab1
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox listOfGoods;
-        private System.Windows.Forms.TextBox loginField_reg;
+        private System.Windows.Forms.TextBox countProduct;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label resultBuy;
         private System.Windows.Forms.Label priceGood;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -332,6 +343,7 @@ namespace lab1
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button calculatePrice;
     }
 }
 

@@ -19,7 +19,7 @@ namespace lab1
         public Products()
         {
 
-        } // инициализация списка покупок
+        }
 
         public string[] getTypesProducts()
         {
@@ -137,6 +137,12 @@ namespace lab1
                     price = 300;
                 }
             }
-        }
+        } // выбор цены для товара
+
+        public int resultPrice(int count)
+        {
+            int resultPrice = count * price;
+            return resultPrice;
+        } // подсчет итоговой цены за товары
     }
 }
