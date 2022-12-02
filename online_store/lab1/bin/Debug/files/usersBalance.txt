@@ -1,2 +1,2 @@
-asswecan 1000
-botik 5200
+botik 6401
+kirill 1000
