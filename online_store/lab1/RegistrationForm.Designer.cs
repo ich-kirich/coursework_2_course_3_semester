@@ -30,7 +30,6 @@ namespace lab1
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.error = new System.Windows.Forms.Label();
             this.toLogin = new System.Windows.Forms.Button();
             this.passField_reg = new System.Windows.Forms.TextBox();
             this.re = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.error);
             this.panel1.Controls.Add(this.toLogin);
             this.panel1.Controls.Add(this.passField_reg);
             this.panel1.Controls.Add(this.re);
@@ -57,14 +55,6 @@ namespace lab1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 0;
-            // 
-            // error
-            // 
-            this.error.AutoSize = true;
-            this.error.Location = new System.Drawing.Point(12, 117);
-            this.error.Name = "error";
-            this.error.Size = new System.Drawing.Size(0, 13);
-            this.error.TabIndex = 10;
             // 
             // toLogin
             // 
@@ -143,6 +133,7 @@ namespace lab1
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Name = "RegistrationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -161,6 +152,5 @@ namespace lab1
         private System.Windows.Forms.TextBox loginField_reg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button toLogin;
-        private System.Windows.Forms.Label error;
     }
 }

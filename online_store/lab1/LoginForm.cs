@@ -19,11 +19,6 @@ namespace lab1
             InitializeComponent();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            errorInput.Text = "";
-        }
-
         private void toRegistration_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -39,7 +34,6 @@ namespace lab1
             if (inputLogin == "admin" && inputPassword == "admin")
             {
                 addToLocalStorage(inputLogin);
-                errorInput.Text = "";
                 this.Hide();
                 adminPanel to_adminPanel = new adminPanel();
                 to_adminPanel.Show();
@@ -53,13 +47,19 @@ namespace lab1
                     if (lineFileArray[0] == inputLogin && lineFileArray[1] == inputPassword)
                     {
                         addToLocalStorage(inputLogin);
-                        errorInput.Text = "";
                         this.Hide();
                         Profile to_profile = new Profile();
                         to_profile.Show();
                     }
                 }
-                errorInput.Text = "Неверный логин или пароль";
+                MessageBox.Show(
+                    "Неверный логин или пароль",
+                    "Неверный логин или пароль",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
                 f.Close();
             }
         }
@@ -67,11 +67,6 @@ namespace lab1
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             Environment.Exit(1);
-        }
-
-        private void loginField_TextChanged(object sender, EventArgs e)
-        {
-            errorInput.Text = "";
         }
         private void addToLocalStorage(string inputLogin)
         {

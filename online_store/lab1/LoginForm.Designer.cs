@@ -39,7 +39,6 @@ namespace lab1
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorInput = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +46,6 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel1.Controls.Add(this.errorInput);
             this.panel1.Controls.Add(this.toMain);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.toRegistration);
@@ -102,7 +100,6 @@ namespace lab1
             this.passField.PasswordChar = '*';
             this.passField.Size = new System.Drawing.Size(524, 20);
             this.passField.TabIndex = 4;
-            this.passField.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // re
             // 
@@ -121,7 +118,6 @@ namespace lab1
             this.loginField.Name = "loginField";
             this.loginField.Size = new System.Drawing.Size(524, 20);
             this.loginField.TabIndex = 2;
-            this.loginField.TextChanged += new System.EventHandler(this.loginField_TextChanged);
             // 
             // label2
             // 
@@ -156,14 +152,6 @@ namespace lab1
             this.label1.Text = "Авторизация";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // errorInput
-            // 
-            this.errorInput.AutoSize = true;
-            this.errorInput.Location = new System.Drawing.Point(275, 127);
-            this.errorInput.Name = "errorInput";
-            this.errorInput.Size = new System.Drawing.Size(0, 13);
-            this.errorInput.TabIndex = 8;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +179,5 @@ namespace lab1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button toRegistration;
         private System.Windows.Forms.Button toMain;
-        private System.Windows.Forms.Label errorInput;
     }
 }

@@ -26,12 +26,32 @@ namespace lab1
             var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
             if (passField_reg.Text.Length < 5 || !isLow((passField_reg.Text)) || hasSymbols.IsMatch(passField_reg.Text) || (passField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(passField_reg.Text, @"\p{L}"))
             {
-                error.Text = "Некорректные символы для пароля, пароль должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
+                MessageBox.Show(
+                    "Некорректные символы для пароля," + "\r\n" + 
+                    "пароль должен быть больше 5 символов в нижнем регистре," + 
+                    "\r\n" + "не содержать специальных символов" + "\r\n" + 
+                    "и содержать хотя бы одну букву",
+                    "Пароль не прошел валидацию",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
                 isPass = false;
             }
             if (loginField_reg.Text.Length < 5 || !isLow((loginField_reg.Text)) || hasSymbols.IsMatch(loginField_reg.Text) || (loginField_reg.Text.IndexOf(' ') >= 0) || !Regex.IsMatch(loginField_reg.Text, @"\p{L}"))
             {
-                error.Text = "Некорректные символы для логина, логин должен быть больше 5 символов в нижнем регистре, не содержать специальных символов и содержать хотя бы одну букву";
+                MessageBox.Show(
+                    "Некорректные символы для логина," + "\r\n" +
+                    "пароль должен быть больше 5 символов в нижнем регистре," +
+                    "\r\n" + "не содержать специальных символов" + "\r\n" +
+                    "и содержать хотя бы одну букву",
+                    "Логин не прошел валидацию",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
                 isLog = false;
             }
             if (isLog && isPass)
