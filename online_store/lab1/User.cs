@@ -1,40 +1,115 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace lab1
 {
     class User
     {
-        private string login;
-        private string password;
-
         public User()
         {
 
         }
 
-        public string getUserPass()
+        public bool validationRegistration(string loginUser, string passwordUser)
         {
-            return password;
-        }
+            bool isPass = true, isLog = true;
+            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+            if (passwordUser.Length < 5 || !isLow(passwordUser) || hasSymbols.IsMatch(passwordUser) || (passwordUser.IndexOf(' ') >= 0) || !Regex.IsMatch(passwordUser, @"\p{L}"))
+            {
+                isPass = false;
+            }
+            if (loginUser.Length < 5 || !isLow(loginUser) || hasSymbols.IsMatch(loginUser) || (loginUser.IndexOf(' ') >= 0) || !Regex.IsMatch(loginUser, @"\p{L}"))
+            {
+                isLog = false;
+            }
 
-        public string getUserLogin()
+            if (isLog && isPass)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        } // проверка валидности логина и пароля
+
+        private bool isLow(string s)
         {
-            return login;
-        }
+            bool isLow = true;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!Char.IsLower(s[i]) && !Char.IsDigit(s[i]))
+                {
+                    isLow = false;
+                }
+            }
+            return isLow;
+        } // проверка на нижний регистр
 
-        public string setUserPass(string password_inp)
+        public void registrationNewUser(string loginUser, string passwordUser)
         {
-            return password = password_inp;
-        }
+            string path = Directory.GetCurrentDirectory() + @"\files\users.txt";
+            if (File.Exists(path))
+            {
+                string text = "\n" + loginUser + " " + passwordUser + "\n";
+                File.AppendAllText(path, text);
+            }
+            path = Directory.GetCurrentDirectory() + @"\files\usersBalance.txt";
+            string toSaveBalance = loginUser + " " + 1000 + "\n";
+            if (File.Exists(path))
+            {
+                File.AppendAllText(path, toSaveBalance);
+            }
+            path = Directory.GetCurrentDirectory() + @"\files\usersWasted.txt";
+            string toSaveWasted = loginUser + " " + 0 + " " + 0 + "\n";
+            if (File.Exists(path))
+            {
+                File.AppendAllText(path, toSaveWasted);
+            }
+        } // запись информации о новом пользователе
 
-        public string setUserLogin(string login_inp)
+        public bool isAdmin(string loginUser, string passwordUser)
         {
-            return login = login_inp;
-        }
+            if (loginUser == "admin" && passwordUser == "admin")
+            {
+                addToLocalStorage(loginUser);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        } // вход в режиме администратора
 
+        public bool accountLogin(string loginUser, string passwordUser)
+        {
+            StreamReader f = new StreamReader(Directory.GetCurrentDirectory() + @"\files\users.txt");
+            while (!f.EndOfStream)
+            {
+                string lineFile = f.ReadLine();
+                string[] lineFileArray = lineFile.Split(' ');
+                if (lineFileArray[0] == loginUser && lineFileArray[1] == passwordUser)
+                {
+                    addToLocalStorage(loginUser);
+                    return true;
+                }
+            }
+            f.Close();
+            return false;
+        } // вход в аккаунт
+        private void addToLocalStorage(string inputLogin)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\files\localStorage.txt";
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+                File.AppendAllText(path, inputLogin);
+            }
+        } // добавление информации о логине, который вошел в программу
     }
 }

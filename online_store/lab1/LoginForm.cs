@@ -14,6 +14,7 @@ namespace lab1
 {
     public partial class LoginForm : Form
     {
+        private User user = new User();
         public LoginForm()
         {
             InitializeComponent();
@@ -28,54 +29,39 @@ namespace lab1
 
         private void toMain_Click(object sender, EventArgs e)
         {
-            string inputLogin = loginField.Text;
-            string inputPassword = passField.Text;
-            StreamReader f = new StreamReader(Directory.GetCurrentDirectory() + @"\files\users.txt");
-            if (inputLogin == "admin" && inputPassword == "admin")
+            bool isAdmin = user.isAdmin(loginField.Text, passField.Text);
+            if (isAdmin)
             {
-                addToLocalStorage(inputLogin);
                 this.Hide();
                 adminPanel to_adminPanel = new adminPanel();
                 to_adminPanel.Show();
             }
             else
             {
-                while (!f.EndOfStream)
+                bool isLogIn = user.accountLogin(loginField.Text, passField.Text);
+                if (isLogIn)
                 {
-                    string lineFile = f.ReadLine();
-                    string[] lineFileArray = lineFile.Split(' ');
-                    if (lineFileArray[0] == inputLogin && lineFileArray[1] == inputPassword)
-                    {
-                        addToLocalStorage(inputLogin);
-                        this.Hide();
-                        Profile to_profile = new Profile();
-                        to_profile.Show();
-                    }
+                    this.Hide();
+                    Profile to_profile = new Profile();
+                    to_profile.Show();
                 }
-                MessageBox.Show(
-                    "Неверный логин или пароль",
-                    "Неверный логин или пароль",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.None,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly
-                );
-                f.Close();
+                else
+                {
+                    MessageBox.Show(
+                        "Неверный логин или пароль",
+                        "Неверный логин или пароль",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
             }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             Environment.Exit(1);
-        }
-        private void addToLocalStorage(string inputLogin)
-        {
-            string path = Directory.GetCurrentDirectory() + @"\files\localStorage.txt";
-            if (File.Exists(path))
-            {
-                File.WriteAllText(path, string.Empty);
-                File.AppendAllText(path, inputLogin);
-            }
         }
     }
 }

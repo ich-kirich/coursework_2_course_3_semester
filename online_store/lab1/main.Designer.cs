@@ -113,7 +113,6 @@ namespace lab1
             this.basket.TabIndex = 7;
             this.basket.Text = "Перейти в корзину";
             this.basket.UseVisualStyleBackColor = true;
-            this.basket.Click += new System.EventHandler(this.basket_Click);
             // 
             // button1
             // 
@@ -123,7 +122,6 @@ namespace lab1
             this.button1.TabIndex = 7;
             this.button1.Text = "Добавить в корзину";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.basket_Click);
             // 
             // label2
             // 
