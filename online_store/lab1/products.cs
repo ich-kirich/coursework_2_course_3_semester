@@ -15,6 +15,7 @@ namespace lab1
         private string nameProduct;
         private string[] typesProducts;
         private int price = 0;
+        private List<string> productsBusket = new List<string>();
 
         public Products()
         {
@@ -43,6 +44,11 @@ namespace lab1
         public int getPrice()
         {
             return price;
+        }
+
+        public List<string> getProductsBusket()
+        {
+            return productsBusket;
         }
 
         public void selecteCategotyProduct()
@@ -144,5 +150,26 @@ namespace lab1
             int resultPrice = count * price;
             return resultPrice;
         } // подсчет итоговой цены за товары
+
+        public void addToBusket(int resultPrice)
+        {
+            bool isUpdate = false;
+            for(int i = 0; i < productsBusket.Count; i++)
+            {
+                string[] good = productsBusket[i].Split('_');
+                if (good[0] == nameProduct)
+                {
+                    isUpdate = true;
+                    int newPrice = Convert.ToInt32(good[1]) + resultPrice;
+                    string updateProduct = $"{nameProduct}_{newPrice}";
+                    productsBusket[i] = updateProduct;
+                }
+            }
+            if (!isUpdate)
+            {
+                string addProduct = $"{nameProduct}_{resultPrice}";
+                productsBusket.Add(addProduct);
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace lab1
     {
         private string selectedCategory;
         private Products product = new Products();
+        private bool isCount = false;
         public MainPage()
         {
             InitializeComponent();
@@ -67,6 +68,7 @@ namespace lab1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            isCount = false;
             if (listView1.SelectedIndices.Count <= 0)
             {
                 return;
@@ -81,7 +83,7 @@ namespace lab1
 
         private void calculatePrice_Click(object sender, EventArgs e)
         {
-            if (countProduct.Text.All(char.IsDigit))
+            if (countProduct.Text.All(char.IsDigit) && countProduct.Text != "")
             {
                 if (Convert.ToInt32(countProduct.Text) > 100)
                 {
@@ -98,6 +100,7 @@ namespace lab1
                 {
                     int resultPrice = product.resultPrice(Convert.ToInt32(countProduct.Text));
                     resultBuy.Text = resultPrice.ToString();
+                    isCount = true;
                 }
             }
             else
@@ -111,6 +114,46 @@ namespace lab1
                     MessageBoxOptions.DefaultDesktopOnly
                 );
             }
+        }
+
+        private void addBusket_Click(object sender, EventArgs e)
+        {
+            if (!isCount || Convert.ToInt32(resultBuy.Text) == 0)
+            {
+                MessageBox.Show(
+                   "Посчитайте стоимость покупки",
+                   "Посчитайте стоимость покупки!",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.None,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.DefaultDesktopOnly
+               );
+            }
+            else
+            {
+                product.addToBusket(Convert.ToInt32(resultBuy.Text));
+                MessageBox.Show(
+                    "Продукт добавлен в корзину",
+                    "Продукт добавлен в корзину!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
+            }
+        }
+
+        private void basket_Click(object sender, EventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
+            if (File.Exists(path))
+            {
+                for (int j = 0; j < product.getProductsBusket().Count; j++)
+                {
+                    File.AppendAllText(path, product.getProductsBusket()[j] + "\n");
+                }
+            }
+            Environment.Exit(1);
         }
     }
 }

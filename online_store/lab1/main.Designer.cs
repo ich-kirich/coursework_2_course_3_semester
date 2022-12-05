@@ -52,7 +52,7 @@ namespace lab1
             this.личныйКабинетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.basket = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addBusket = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listOfGoods = new System.Windows.Forms.ComboBox();
             this.countProduct = new System.Windows.Forms.TextBox();
@@ -114,15 +114,17 @@ namespace lab1
             this.basket.TabIndex = 7;
             this.basket.Text = "Перейти в корзину";
             this.basket.UseVisualStyleBackColor = true;
+            this.basket.Click += new System.EventHandler(this.basket_Click);
             // 
-            // button1
+            // addBusket
             // 
-            this.button1.Location = new System.Drawing.Point(24, 163);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 41);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Добавить в корзину";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addBusket.Location = new System.Drawing.Point(24, 163);
+            this.addBusket.Name = "addBusket";
+            this.addBusket.Size = new System.Drawing.Size(128, 41);
+            this.addBusket.TabIndex = 7;
+            this.addBusket.Text = "Добавить в корзину";
+            this.addBusket.UseVisualStyleBackColor = true;
+            this.addBusket.Click += new System.EventHandler(this.addBusket_Click);
             // 
             // label2
             // 
@@ -272,7 +274,7 @@ namespace lab1
             this.panel1.Controls.Add(this.countProduct);
             this.panel1.Controls.Add(this.listOfGoods);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.addBusket);
             this.panel1.Controls.Add(this.basket);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(190, 24);
@@ -329,7 +331,7 @@ namespace lab1
         private System.Windows.Forms.ToolStripMenuItem личныйКабинетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.Button basket;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addBusket;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox listOfGoods;
         private System.Windows.Forms.TextBox countProduct;
