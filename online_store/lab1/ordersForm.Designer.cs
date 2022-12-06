@@ -29,44 +29,10 @@ namespace lab1
         /// </summary>
         private void InitializeComponent()
         {
-            this.listOfPokypok = new System.Windows.Forms.ComboBox();
-            this.picturePokypka = new System.Windows.Forms.PictureBox();
-            this.deletePokypky = new System.Windows.Forms.Button();
             this.order = new System.Windows.Forms.Button();
             this.toMain = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picturePokypka)).BeginInit();
+            this.basketList = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
-            // 
-            // listOfPokypok
-            // 
-            this.listOfPokypok.BackColor = System.Drawing.SystemColors.Window;
-            this.listOfPokypok.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.listOfPokypok.FormattingEnabled = true;
-            this.listOfPokypok.Location = new System.Drawing.Point(134, 111);
-            this.listOfPokypok.Name = "listOfPokypok";
-            this.listOfPokypok.Size = new System.Drawing.Size(202, 21);
-            this.listOfPokypok.TabIndex = 1;
-            this.listOfPokypok.SelectedIndexChanged += new System.EventHandler(this.listOfPokypok_SelectedIndexChanged_1);
-            // 
-            // picturePokypka
-            // 
-            this.picturePokypka.Location = new System.Drawing.Point(134, 187);
-            this.picturePokypka.Name = "picturePokypka";
-            this.picturePokypka.Size = new System.Drawing.Size(213, 154);
-            this.picturePokypka.TabIndex = 5;
-            this.picturePokypka.TabStop = false;
-            this.picturePokypka.Click += new System.EventHandler(this.picturePokypka_Click);
-            // 
-            // deletePokypky
-            // 
-            this.deletePokypky.Location = new System.Drawing.Point(386, 300);
-            this.deletePokypky.Name = "deletePokypky";
-            this.deletePokypky.Size = new System.Drawing.Size(115, 41);
-            this.deletePokypky.TabIndex = 6;
-            this.deletePokypky.Text = "Удалить из корзины";
-            this.deletePokypky.UseVisualStyleBackColor = true;
-            this.deletePokypky.Click += new System.EventHandler(this.deletePokypky_Click);
             // 
             // order
             // 
@@ -80,7 +46,7 @@ namespace lab1
             // 
             // toMain
             // 
-            this.toMain.Location = new System.Drawing.Point(28, 23);
+            this.toMain.Location = new System.Drawing.Point(647, 24);
             this.toMain.Name = "toMain";
             this.toMain.Size = new System.Drawing.Size(141, 23);
             this.toMain.TabIndex = 8;
@@ -88,15 +54,16 @@ namespace lab1
             this.toMain.UseVisualStyleBackColor = true;
             this.toMain.Click += new System.EventHandler(this.toMain_Click);
             // 
-            // checkBox1
+            // basketList
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(465, 125);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.basketList.ColumnWidth = 210;
+            this.basketList.Dock = System.Windows.Forms.DockStyle.Left;
+            this.basketList.FormattingEnabled = true;
+            this.basketList.Location = new System.Drawing.Point(0, 0);
+            this.basketList.MultiColumn = true;
+            this.basketList.Name = "basketList";
+            this.basketList.Size = new System.Drawing.Size(215, 450);
+            this.basketList.TabIndex = 9;
             // 
             // ordersForm
             // 
@@ -104,28 +71,19 @@ namespace lab1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.basketList);
             this.Controls.Add(this.toMain);
             this.Controls.Add(this.order);
-            this.Controls.Add(this.deletePokypky);
-            this.Controls.Add(this.picturePokypka);
-            this.Controls.Add(this.listOfPokypok);
             this.Name = "ordersForm";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picturePokypka)).EndInit();
+            this.Load += new System.EventHandler(this.ordersForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox listOfPokypok;
-        private System.Windows.Forms.PictureBox picturePokypka;
-        private System.Windows.Forms.Button deletePokypky;
         private System.Windows.Forms.Button order;
         private System.Windows.Forms.Button toMain;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckedListBox basketList;
     }
 }

@@ -20,33 +20,36 @@ namespace lab1
 
         private void buttonAddBalance_Click(object sender, EventArgs e)
         {
-            int balance = Convert.ToInt32(labelBalance.Text);
-            if (StringIsDigits(TextBoxAddBalance.Text))
+            if (TextBoxAddBalance.Text != "")
             {
-                balance += Convert.ToInt32(TextBoxAddBalance.Text);
-            }
-            labelBalance.Text = balance.ToString();
-            TextBoxAddBalance.Clear();
-            string[] usersBalance = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
-            string[] currentUser = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
-            for (int i = 0; i < usersBalance.Length; i++)
-            {
-                string[] line = usersBalance[i].Split(' ');
-                if (line[0] == currentUser[0])
+                int balance = Convert.ToInt32(labelBalance.Text);
+                if (StringIsDigits(TextBoxAddBalance.Text))
                 {
-                    string toSaveBalance = currentUser[0] + " " + balance;
-                    string str = string.Empty;
-                    using (StreamReader reader = File.OpenText(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                    balance += Convert.ToInt32(TextBoxAddBalance.Text);
+                }
+                labelBalance.Text = balance.ToString();
+                TextBoxAddBalance.Clear();
+                string[] usersBalance = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+                string[] currentUser = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
+                for (int i = 0; i < usersBalance.Length; i++)
+                {
+                    string[] line = usersBalance[i].Split(' ');
+                    if (line[0] == currentUser[0])
                     {
-                        str = reader.ReadToEnd();
-                    }
-                    str = str.Replace(usersBalance[i], toSaveBalance);
+                        string toSaveBalance = currentUser[0] + " " + balance;
+                        string str = string.Empty;
+                        using (StreamReader reader = File.OpenText(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                        {
+                            str = reader.ReadToEnd();
+                        }
+                        str = str.Replace(usersBalance[i], toSaveBalance);
 
-                    using (StreamWriter file = new StreamWriter(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
-                    {
-                        file.Write(str);
+                        using (StreamWriter file = new StreamWriter(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                        {
+                            file.Write(str);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }

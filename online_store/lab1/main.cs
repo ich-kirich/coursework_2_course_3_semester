@@ -15,7 +15,7 @@ namespace lab1
     {
         private string selectedCategory;
         private Products product = new Products();
-        private bool isCount = false;
+        private bool isCount = false, isGood = false;
         public MainPage()
         {
             InitializeComponent();
@@ -25,6 +25,7 @@ namespace lab1
 
         private void listOfGoods_SelectedIndexChanged(object sender, EventArgs e)
         {
+            isGood = true;
             countProduct.Text = "";
             resultBuy.Text = "0";
             product.setNameProduct(listOfGoods.SelectedItem.ToString());
@@ -69,6 +70,7 @@ namespace lab1
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             isCount = false;
+            isGood = false;
             if (listView1.SelectedIndices.Count <= 0)
             {
                 return;
@@ -118,11 +120,11 @@ namespace lab1
 
         private void addBusket_Click(object sender, EventArgs e)
         {
-            if (!isCount || Convert.ToInt32(resultBuy.Text) == 0)
+            if (!isCount || Convert.ToInt32(resultBuy.Text) == 0 || !isGood)
             {
                 MessageBox.Show(
-                   "Посчитайте стоимость покупки",
-                   "Посчитайте стоимость покупки!",
+                   "Посчитайте стоимость покупки и выберите продукт",
+                   "Посчитайте стоимость покупки и выберите продукт!",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.None,
                    MessageBoxDefaultButton.Button1,
@@ -153,7 +155,9 @@ namespace lab1
                     File.AppendAllText(path, product.getProductsBusket()[j] + "\n");
                 }
             }
-            Environment.Exit(1);
+            this.Hide();
+            ordersForm toBusket = new ordersForm();
+            toBusket.Show();
         }
     }
 }

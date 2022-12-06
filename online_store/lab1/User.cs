@@ -17,26 +17,40 @@ namespace lab1
 
         public bool validationRegistration(string loginUser, string passwordUser)
         {
-            bool isPass = true, isLog = true;
-            var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
-            if (passwordUser.Length < 5 || !isLow(passwordUser) || hasSymbols.IsMatch(passwordUser) || (passwordUser.IndexOf(' ') >= 0) || !Regex.IsMatch(passwordUser, @"\p{L}"))
+            if (!usernameIsExists(loginUser))
             {
-                isPass = false;
-            }
-            if (loginUser.Length < 5 || !isLow(loginUser) || hasSymbols.IsMatch(loginUser) || (loginUser.IndexOf(' ') >= 0) || !Regex.IsMatch(loginUser, @"\p{L}"))
-            {
-                isLog = false;
-            }
-
-            if (isLog && isPass)
-            {
-                return true;
-            }
-            else
-            {
+                bool isPass = true, isLog = true;
+                var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+                if (passwordUser.Length < 5 || !isLow(passwordUser) || hasSymbols.IsMatch(passwordUser) || (passwordUser.IndexOf(' ') >= 0) || !Regex.IsMatch(passwordUser, @"\p{L}"))
+                {
+                    isPass = false;
+                }
+                if (loginUser.Length < 5 || !isLow(loginUser) || hasSymbols.IsMatch(loginUser) || (loginUser.IndexOf(' ') >= 0) || !Regex.IsMatch(loginUser, @"\p{L}"))
+                {
+                    isLog = false;
+                }
+                if (isLog && isPass)
+                {
+                    return true;
+                }
                 return false;
             }
+            return false;
         } // проверка валидности логина и пароля
+
+        private bool usernameIsExists(string newUser)
+        {
+            string[] users = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+            for (int i = 0; i < users.Length; i++)
+            {
+                string[] user = users[i].Split(' ');
+                if (newUser == user[0])
+                {
+                    return true;
+                }
+            }
+            return false;
+        } // существует ли аккаунт с таким логином
 
         private bool isLow(string s)
         {
