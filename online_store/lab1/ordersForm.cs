@@ -70,9 +70,11 @@ namespace lab1
                 f.Close();
                 string path = Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt";
                 string goods = "";
+                string worker = "Не назначен";
+                string statusOrder = "В процессе рассмотрения";
                 if (File.Exists(path))
                 {
-                    File.AppendAllText(path, user + "/");
+                    File.AppendAllText(path, user + "/" + worker + "/" + statusOrder + "/");
                     for (int j = 0; j < selectedGoods.Count; j++)
                     {
                         selectedGoods[j] = selectedGoods[j].ToString().Replace("  ", "_").Replace(" р.", "");
