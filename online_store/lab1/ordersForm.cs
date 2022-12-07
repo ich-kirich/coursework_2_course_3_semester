@@ -69,15 +69,16 @@ namespace lab1
                 }
                 f.Close();
                 string path = Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt";
+                string goods = "";
                 if (File.Exists(path))
                 {
-                    File.AppendAllText(path, user + " ");
+                    File.AppendAllText(path, user + "/");
                     for (int j = 0; j < selectedGoods.Count; j++)
                     {
                         selectedGoods[j] = selectedGoods[j].ToString().Replace("  ", "_").Replace(" р.", "");
-                        File.AppendAllText(path, selectedGoods[j] + " ");
+                        goods += selectedGoods[j] + "/";
                     }
-                    File.AppendAllText(path, "\n");
+                    File.AppendAllText(path, goods + "\n");
                 }
                 MessageBox.Show(
                     "Заказ сделан",

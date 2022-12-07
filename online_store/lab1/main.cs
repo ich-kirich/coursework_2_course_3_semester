@@ -52,7 +52,12 @@ namespace lab1
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             Environment.Exit(1);
+            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+            }
+            Environment.Exit(1);
         }
 
         private void chandeListGoods(string selectedCategory)
