@@ -55,17 +55,12 @@ namespace lab1
             this.addBusket = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listOfGoods = new System.Windows.Forms.ComboBox();
-            this.countProduct = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.resultBuy = new System.Windows.Forms.Label();
             this.priceGood = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.pictureGood = new System.Windows.Forms.PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listGoods = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.calculatePrice = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGood)).BeginInit();
@@ -118,7 +113,7 @@ namespace lab1
             // 
             // addBusket
             // 
-            this.addBusket.Location = new System.Drawing.Point(24, 163);
+            this.addBusket.Location = new System.Drawing.Point(24, 82);
             this.addBusket.Name = "addBusket";
             this.addBusket.Size = new System.Drawing.Size(128, 41);
             this.addBusket.TabIndex = 7;
@@ -145,13 +140,6 @@ namespace lab1
             this.listOfGoods.Size = new System.Drawing.Size(202, 21);
             this.listOfGoods.TabIndex = 9;
             // 
-            // countProduct
-            // 
-            this.countProduct.Location = new System.Drawing.Point(140, 83);
-            this.countProduct.Name = "countProduct";
-            this.countProduct.Size = new System.Drawing.Size(202, 20);
-            this.countProduct.TabIndex = 11;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -160,15 +148,6 @@ namespace lab1
             this.label20.Size = new System.Drawing.Size(36, 13);
             this.label20.TabIndex = 12;
             this.label20.Text = "Цена:";
-            // 
-            // resultBuy
-            // 
-            this.resultBuy.AutoSize = true;
-            this.resultBuy.Location = new System.Drawing.Point(121, 127);
-            this.resultBuy.Name = "resultBuy";
-            this.resultBuy.Size = new System.Drawing.Size(13, 13);
-            this.resultBuy.TabIndex = 13;
-            this.resultBuy.Text = "0";
             // 
             // priceGood
             // 
@@ -179,42 +158,24 @@ namespace lab1
             this.priceGood.TabIndex = 13;
             this.priceGood.Text = "0";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(24, 86);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(110, 13);
-            this.label22.TabIndex = 14;
-            this.label22.Text = "Введите количество";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(24, 127);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(94, 13);
-            this.label23.TabIndex = 15;
-            this.label23.Text = "Цена за покупку:";
-            // 
             // pictureGood
             // 
             this.pictureGood.ErrorImage = null;
             this.pictureGood.Image = ((System.Drawing.Image)(resources.GetObject("pictureGood.Image")));
             this.pictureGood.ImageLocation = "";
             this.pictureGood.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureGood.InitialImage")));
-            this.pictureGood.Location = new System.Drawing.Point(30, 252);
+            this.pictureGood.Location = new System.Drawing.Point(24, 140);
             this.pictureGood.Name = "pictureGood";
             this.pictureGood.Size = new System.Drawing.Size(213, 154);
             this.pictureGood.TabIndex = 16;
             this.pictureGood.TabStop = false;
             // 
-            // listView1
+            // listGoods
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listGoods.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
+            this.listGoods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listGoods.HideSelection = false;
             listViewItem1.StateImageIndex = 0;
             listViewItem2.StateImageIndex = 0;
             listViewItem3.StateImageIndex = 0;
@@ -231,7 +192,7 @@ namespace lab1
             listViewItem14.StateImageIndex = 0;
             listViewItem15.StateImageIndex = 0;
             listViewItem16.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.listGoods.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
             listViewItem3,
@@ -248,13 +209,13 @@ namespace lab1
             listViewItem14,
             listViewItem15,
             listViewItem16});
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(191, 535);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listGoods.Location = new System.Drawing.Point(0, 0);
+            this.listGoods.Name = "listGoods";
+            this.listGoods.Size = new System.Drawing.Size(191, 535);
+            this.listGoods.TabIndex = 0;
+            this.listGoods.UseCompatibleStateImageBehavior = false;
+            this.listGoods.View = System.Windows.Forms.View.Details;
+            this.listGoods.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -264,14 +225,9 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel1.Controls.Add(this.calculatePrice);
             this.panel1.Controls.Add(this.pictureGood);
-            this.panel1.Controls.Add(this.label23);
-            this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.priceGood);
-            this.panel1.Controls.Add(this.resultBuy);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.countProduct);
             this.panel1.Controls.Add(this.listOfGoods);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.addBusket);
@@ -282,20 +238,10 @@ namespace lab1
             this.panel1.Size = new System.Drawing.Size(691, 535);
             this.panel1.TabIndex = 11;
             // 
-            // calculatePrice
-            // 
-            this.calculatePrice.Location = new System.Drawing.Point(197, 118);
-            this.calculatePrice.Name = "calculatePrice";
-            this.calculatePrice.Size = new System.Drawing.Size(131, 30);
-            this.calculatePrice.TabIndex = 17;
-            this.calculatePrice.Text = "Посчитать стоимость";
-            this.calculatePrice.UseVisualStyleBackColor = true;
-            this.calculatePrice.Click += new System.EventHandler(this.calculatePrice_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Desktop;
-            this.panel2.Controls.Add(this.listView1);
+            this.panel2.Controls.Add(this.listGoods);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
@@ -314,6 +260,7 @@ namespace lab1
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainPage";
             this.Text = "Internet Store";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureGood)).EndInit();
@@ -334,18 +281,13 @@ namespace lab1
         private System.Windows.Forms.Button addBusket;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox listOfGoods;
-        private System.Windows.Forms.TextBox countProduct;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label resultBuy;
         private System.Windows.Forms.Label priceGood;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.PictureBox pictureGood;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listGoods;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button calculatePrice;
     }
 }
 

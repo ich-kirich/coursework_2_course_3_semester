@@ -15,19 +15,17 @@ namespace lab1
     {
         private string selectedCategory;
         private Products product = new Products();
-        private bool isCount = false, isGood = false;
+        private bool isGood = false;
         public MainPage()
         {
             InitializeComponent();
             listOfGoods.SelectedIndexChanged += listOfGoods_SelectedIndexChanged;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            listGoods.SelectedIndexChanged += listView1_SelectedIndexChanged;
         }
 
         private void listOfGoods_SelectedIndexChanged(object sender, EventArgs e)
         {
             isGood = true;
-            countProduct.Text = "";
-            resultBuy.Text = "0";
             product.setNameProduct(listOfGoods.SelectedItem.ToString());
             product.selectProduct();
             priceGood.Text = product.getPrice().ToString();
@@ -68,8 +66,6 @@ namespace lab1
         private void chandeListGoods(string selectedCategory)
         {
             priceGood.Text = "0";
-            countProduct.Text = "";
-            resultBuy.Text = "0";
             listOfGoods.Items.Clear();
             product.setCategoryProduct(selectedCategory);
             product.selecteCategotyProduct();
@@ -79,62 +75,26 @@ namespace lab1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            isCount = false;
             isGood = false;
-            if (listView1.SelectedIndices.Count <= 0)
+            if (listGoods.SelectedIndices.Count <= 0)
             {
                 return;
             }
-            int intselectedindex = listView1.SelectedIndices[0];
+            int intselectedindex = listGoods.SelectedIndices[0];
             if (intselectedindex >= 0)
             {
-                selectedCategory = listView1.Items[intselectedindex].Text;
+                selectedCategory = listGoods.Items[intselectedindex].Text;
                 chandeListGoods(selectedCategory);
-            }
-        }
-
-        private void calculatePrice_Click(object sender, EventArgs e)
-        {
-            if (countProduct.Text.All(char.IsDigit) && countProduct.Text != "")
-            {
-                if (Convert.ToInt32(countProduct.Text) > 100)
-                {
-                    MessageBox.Show(
-                        "Нельзя купить товаров одного типа более чем на 100 штук",
-                        "Ограничение на кол-во покупаемого товара",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.None,
-                        MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly
-                    );
-                }
-                else
-                {
-                    int resultPrice = product.resultPrice(Convert.ToInt32(countProduct.Text));
-                    resultBuy.Text = resultPrice.ToString();
-                    isCount = true;
-                }
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Введите целое число",
-                    "Ошибка ввода!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.None,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly
-                );
             }
         }
 
         private void addBusket_Click(object sender, EventArgs e)
         {
-            if (!isCount || Convert.ToInt32(resultBuy.Text) == 0 || !isGood)
+            if (!isGood)
             {
                 MessageBox.Show(
-                   "Посчитайте стоимость покупки и выберите продукт",
-                   "Посчитайте стоимость покупки и выберите продукт!",
+                   "Выберите продукт",
+                   "Выберите продукт!",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.None,
                    MessageBoxDefaultButton.Button1,
@@ -143,15 +103,29 @@ namespace lab1
             }
             else
             {
-                product.addToBusket(Convert.ToInt32(resultBuy.Text));
-                MessageBox.Show(
-                    "Продукт добавлен в корзину",
-                    "Продукт добавлен в корзину!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.None,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly
-                );
+                if (!product.goodIsChoose())
+                {
+                    product.addToBusket(Convert.ToInt32(priceGood.Text));
+                    MessageBox.Show(
+                        "Продукт добавлен в корзину",
+                        "Продукт добавлен в корзину!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+                else
+                {
+                    MessageBox.Show(
+                       "Продукт уже добавлен в корзину",
+                       "Продукт уже добавлен в корзину!",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.None,
+                       MessageBoxDefaultButton.Button1,
+                       MessageBoxOptions.DefaultDesktopOnly
+                   );
+                }
             }
         }
 
@@ -168,6 +142,18 @@ namespace lab1
             this.Hide();
             ordersForm toBusket = new ordersForm();
             toBusket.Show();
+        }
+
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+            string[] goods = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\goodsList.txt");
+            for (int i = 0; i < goods.Length; i++)
+            {
+                string[] good = goods[i].Split('/');
+                string[] row = { good[0] };
+                var listViewItem = new ListViewItem(row);
+                listGoods.Items.Add(listViewItem);
+            }
         }
     }
 }

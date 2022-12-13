@@ -79,12 +79,6 @@ namespace lab1
             {
                 File.AppendAllText(path, toSaveBalance);
             }
-            path = Directory.GetCurrentDirectory() + @"\files\usersWasted.txt";
-            string toSaveWasted = loginUser + " " + 0 + " " + 0 + "\n";
-            if (File.Exists(path))
-            {
-                File.AppendAllText(path, toSaveWasted);
-            }
         } // запись информации о новом пользователе
 
         public bool isAdmin(string loginUser, string passwordUser)
@@ -116,6 +110,7 @@ namespace lab1
             f.Close();
             return false;
         } // вход в аккаунт
+
         private void addToLocalStorage(string inputLogin)
         {
             string path = Directory.GetCurrentDirectory() + @"\files\localStorage.txt";

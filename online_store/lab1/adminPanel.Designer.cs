@@ -47,7 +47,7 @@ namespace lab1
             this.assignOrder.Name = "assignOrder";
             this.assignOrder.Size = new System.Drawing.Size(171, 41);
             this.assignOrder.TabIndex = 5;
-            this.assignOrder.Text = "Начать выполнение заказа";
+            this.assignOrder.Text = "Обновить статус заказа";
             this.assignOrder.UseVisualStyleBackColor = true;
             this.assignOrder.Click += new System.EventHandler(this.assignOrder_Click);
             // 

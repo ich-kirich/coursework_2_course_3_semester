@@ -153,23 +153,22 @@ namespace lab1
 
         public void addToBusket(int resultPrice)
         {
-            bool isUpdate = false;
-            for(int i = 0; i < productsBusket.Count; i++)
+            const int defaultCountGood = 1;
+            string addProduct = $"{nameProduct}_{resultPrice}р._{defaultCountGood}шт.";
+            productsBusket.Add(addProduct);
+        }
+
+        public bool goodIsChoose()
+        {
+            for (int i = 0; i < productsBusket.Count; i++)
             {
                 string[] good = productsBusket[i].Split('_');
                 if (good[0] == nameProduct)
                 {
-                    isUpdate = true;
-                    int newPrice = Convert.ToInt32(good[1]) + resultPrice;
-                    string updateProduct = $"{nameProduct}_{newPrice}";
-                    productsBusket[i] = updateProduct;
+                    return true;
                 }
             }
-            if (!isUpdate)
-            {
-                string addProduct = $"{nameProduct}_{resultPrice}";
-                productsBusket.Add(addProduct);
-            }
+            return false;
         }
     }
 }

@@ -45,7 +45,43 @@ namespace lab1
 
         private void assignOrder_Click(object sender, EventArgs e)
         {
-
+            ListView.CheckedListViewItemCollection checkedItems = tableOfOrders.CheckedItems;
+            if (checkedItems.Count <= 0)
+            {
+                MessageBox.Show(
+                    "Выберите заказ!",
+                    "Выберите заказ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
+            }
+            else
+            {
+                string path = Directory.GetCurrentDirectory() + @"\files\orders.txt";
+                string resultOrder = "";
+                if (File.Exists(path))
+                {
+                    foreach (ListViewItem item in checkedItems)
+                    {
+                        for (int i = 0; i < item.SubItems.Count; i++)
+                        {
+                            resultOrder += item.SubItems[i].Text + "/";
+                        }
+                        File.AppendAllText(path, resultOrder + "\n");
+                        resultOrder = "";
+                    }
+                    MessageBox.Show(
+                        "Заказ записан!",
+                        "Заказ записан!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+            }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)

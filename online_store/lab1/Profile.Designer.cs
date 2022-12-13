@@ -42,7 +42,6 @@ namespace lab1
             this.label4 = new System.Windows.Forms.Label();
             this.labelLoginUser = new System.Windows.Forms.Label();
             this.buttonToBuy = new System.Windows.Forms.Button();
-            this.buttonWasted = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -145,16 +144,6 @@ namespace lab1
             this.buttonToBuy.UseVisualStyleBackColor = true;
             this.buttonToBuy.Click += new System.EventHandler(this.buttonToBuy_Click);
             // 
-            // buttonWasted
-            // 
-            this.buttonWasted.Location = new System.Drawing.Point(286, 402);
-            this.buttonWasted.Name = "buttonWasted";
-            this.buttonWasted.Size = new System.Drawing.Size(150, 36);
-            this.buttonWasted.TabIndex = 4;
-            this.buttonWasted.Text = "Всего куплено";
-            this.buttonWasted.UseVisualStyleBackColor = true;
-            this.buttonWasted.Click += new System.EventHandler(this.buttonWasted_Click);
-            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,7 +152,6 @@ namespace lab1
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.labelLoginUser);
             this.Controls.Add(this.buttonToBuy);
-            this.Controls.Add(this.buttonWasted);
             this.Controls.Add(this.buttonToLogin);
             this.Controls.Add(this.buttonAddBalance);
             this.Controls.Add(this.TextBoxAddBalance);
@@ -194,6 +182,5 @@ namespace lab1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelLoginUser;
         private System.Windows.Forms.Button buttonToBuy;
-        private System.Windows.Forms.Button buttonWasted;
     }
 }

@@ -40,14 +40,20 @@ namespace lab1
             string[] basketGoods = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\basket.txt");
             for (int i = 0; i < basketGoods.Length; i++)
             {
-                basketGoods[i] = basketGoods[i].Replace("_", "  ") + " р.";
+                string[] goods = basketGoods[i].Split('_');
+                string userName = goods[0];
+                string sum = goods[1];
+                string count = goods[2];
+                string[] row = { userName, sum, count };
+                var listViewItem = new ListViewItem(row);
+                basketList.Items.Add(listViewItem);
             }
-            basketList.Items.AddRange(basketGoods);
+            updatePrice();
         }
 
         private void order_Click(object sender, EventArgs e)
         {
-            List<object> selectedGoods = basketList.CheckedItems.OfType<object>().ToList();
+            ListView.CheckedListViewItemCollection selectedGoods = basketList.CheckedItems;
             if (selectedGoods.Count <= 0)
             {
                 MessageBox.Show(
@@ -75,10 +81,10 @@ namespace lab1
                 if (File.Exists(path))
                 {
                     File.AppendAllText(path, user + "/" + worker + "/" + statusOrder + "/");
-                    for (int j = 0; j < selectedGoods.Count; j++)
+                    foreach (ListViewItem item in selectedGoods)
                     {
-                        selectedGoods[j] = selectedGoods[j].ToString().Replace("  ", "_").Replace(" р.", "");
-                        goods += selectedGoods[j] + "/";
+                        string res = item.SubItems[0].Text + "_" + Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));
+                        goods += res + "/";
                     }
                     File.AppendAllText(path, goods + "\n");
                 }
@@ -91,6 +97,68 @@ namespace lab1
                     MessageBoxOptions.DefaultDesktopOnly
                 );
             }
+        }
+
+        private void upgateCountGood_Click(object sender, EventArgs e)
+        {
+            if (inputCountGood.Text.All(char.IsDigit) && inputCountGood.Text != "")
+            {
+                if (Convert.ToInt32(inputCountGood.Text) > 0)
+                {
+                    ListView.CheckedListViewItemCollection checkedItems = basketList.CheckedItems;
+                    if (checkedItems.Count <= 0)
+                    {
+                        MessageBox.Show(
+                            "Выберите товар!",
+                            "Выберите товар",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.None,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly
+                        );
+                    }
+                    else
+                    {
+                        foreach (ListViewItem item in checkedItems)
+                        {
+                            item.SubItems[2].Text = inputCountGood.Text + "шт.";
+                        }
+                        updatePrice();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Введите число, большее нуля",
+                        "Введите число, большее нуля",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Введите целое число",
+                    "Введите целое число",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.None,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly
+                );
+            }
+        }
+
+        private void updatePrice()
+        {
+            int price = 0;
+            foreach (ListViewItem item in basketList.Items)
+            {
+                price += Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));
+            }
+            resultPrice.Text = "Итоговая цена: " + price.ToString() + "р.";
         }
     }
 }
