@@ -146,6 +146,11 @@ namespace lab1
 
         private void MainPage_Load(object sender, EventArgs e)
         {
+            addCategoryGood();
+        }
+
+        private void addCategoryGood()
+        {
             string[] goods = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\goodsList.txt");
             for (int i = 0; i < goods.Length; i++)
             {

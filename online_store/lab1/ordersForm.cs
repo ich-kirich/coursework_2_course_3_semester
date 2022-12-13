@@ -51,6 +51,19 @@ namespace lab1
             updatePrice();
         }
 
+        private int createId()
+        {
+            int id = 1;
+            string[] idList = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt");
+            if (idList.Length != 0)
+            {
+                string[] Good = idList[idList.Length - 1].Split('/');
+                string idGood = Good[0];
+                id = Convert.ToInt32(idGood) + 1;
+            }
+            return id;
+        }
+
         private void order_Click(object sender, EventArgs e)
         {
             ListView.CheckedListViewItemCollection selectedGoods = basketList.CheckedItems;
@@ -78,9 +91,10 @@ namespace lab1
                 string goods = "";
                 string worker = "Не назначен";
                 string statusOrder = "В процессе рассмотрения";
+                int idGood = createId();
                 if (File.Exists(path))
                 {
-                    File.AppendAllText(path, user + "/" + worker + "/" + statusOrder + "/");
+                    File.AppendAllText(path, idGood + "/" + user + "/" + worker + "/" + statusOrder + "/");
                     foreach (ListViewItem item in selectedGoods)
                     {
                         string res = item.SubItems[0].Text + "_" + Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));

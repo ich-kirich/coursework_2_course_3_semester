@@ -25,16 +25,17 @@ namespace lab1
             {
                 usersOrders[i] = usersOrders[i].Remove(usersOrders[i].Length - 1, 1);
                 string[] userOder = usersOrders[i].Split('/');
-                string userName = userOder[0];
-                string worker = userOder[1];
-                string status = userOder[2];
+                string idOrder = userOder[0];
+                string userName = userOder[1];
+                string worker = userOder[2];
+                string status = userOder[3];
                 int priceOrder = 0;
-                for (int j = 3; j < userOder.Length; j++)
+                for (int j = 4; j < userOder.Length; j++)
                 {
                     string[] order = userOder[j].Split('_');
                     priceOrder += Convert.ToInt32(order[1]);
                 }
-                string[] row = { userName, priceOrder.ToString(), worker, status };
+                string[] row = { idOrder, userName, priceOrder.ToString(), worker, status };
                 var listViewItem = new ListViewItem(row);
                 tableOfOrders.Items.Add(listViewItem);
             }
@@ -59,18 +60,36 @@ namespace lab1
             }
             else
             {
-                string path = Directory.GetCurrentDirectory() + @"\files\orders.txt";
-                string resultOrder = "";
+                string path = Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt";
+                string[] ordersList = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt");
                 if (File.Exists(path))
                 {
                     foreach (ListViewItem item in checkedItems)
                     {
-                        for (int i = 0; i < item.SubItems.Count; i++)
+                        string str = string.Empty;
+                        using (StreamReader reader = File.OpenText(path))
                         {
-                            resultOrder += item.SubItems[i].Text + "/";
+                            str = reader.ReadToEnd();
                         }
-                        File.AppendAllText(path, resultOrder + "\n");
-                        resultOrder = "";
+                        for (int i = 0; i < ordersList.Length; i++)
+                        {
+                            string[] order = ordersList[i].Split('/');
+                            if (item.SubItems[0].Text == order[0])
+                            {
+                                string resultOrder = item.SubItems[0].Text + "/" + item.SubItems[1].Text + "/" + item.SubItems[3].Text + "/" 
+                                    + item.SubItems[4].Text + "/";
+                                for (int j = 4; j < order.Length; j++)
+                                {
+                                    resultOrder += order[j] + "/";
+                                }
+                                resultOrder = resultOrder.Remove(resultOrder.Length - 1, 1);
+                                str = str.Replace(ordersList[i], resultOrder);
+                            }
+                        }
+                        using (StreamWriter file = new StreamWriter(path))
+                        {
+                            file.Write(str);
+                        }
                     }
                     MessageBox.Show(
                         "Заказ записан!",
@@ -120,7 +139,7 @@ namespace lab1
                 {
                     foreach (ListViewItem item in checkedItems)
                     {
-                        item.SubItems[2].Text = workersList.SelectedItem.ToString();
+                        item.SubItems[3].Text = workersList.SelectedItem.ToString();
                     }
                 }
             }
@@ -157,7 +176,7 @@ namespace lab1
                 {
                     foreach (ListViewItem item in checkedItems)
                     {
-                        item.SubItems[3].Text = statusOrder.SelectedItem.ToString();
+                        item.SubItems[4].Text = statusOrder.SelectedItem.ToString();
                     }
                 }
             }
