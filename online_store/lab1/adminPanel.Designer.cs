@@ -31,6 +31,7 @@ namespace lab1
         {
             this.assignOrder = new System.Windows.Forms.Button();
             this.tableOfOrders = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -39,16 +40,16 @@ namespace lab1
             this.chooseStatus = new System.Windows.Forms.Button();
             this.workersList = new System.Windows.Forms.ComboBox();
             this.statusOrder = new System.Windows.Forms.ComboBox();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // assignOrder
             // 
-            this.assignOrder.Location = new System.Drawing.Point(597, 365);
+            this.assignOrder.Location = new System.Drawing.Point(597, 351);
             this.assignOrder.Name = "assignOrder";
             this.assignOrder.Size = new System.Drawing.Size(171, 41);
             this.assignOrder.TabIndex = 5;
-            this.assignOrder.Text = "Обновить статус заказа";
+            this.assignOrder.Text = "Записать заказ";
             this.assignOrder.UseVisualStyleBackColor = true;
             this.assignOrder.Click += new System.EventHandler(this.assignOrder_Click);
             // 
@@ -71,6 +72,10 @@ namespace lab1
             this.tableOfOrders.TabIndex = 6;
             this.tableOfOrders.UseCompatibleStateImageBehavior = false;
             this.tableOfOrders.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "ID";
             // 
             // columnHeader1
             // 
@@ -137,9 +142,15 @@ namespace lab1
             this.statusOrder.Size = new System.Drawing.Size(209, 21);
             this.statusOrder.TabIndex = 12;
             // 
-            // columnHeader5
+            // exit
             // 
-            this.columnHeader5.Text = "ID";
+            this.exit.Location = new System.Drawing.Point(597, 412);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(171, 26);
+            this.exit.TabIndex = 13;
+            this.exit.Text = "Выход";
+            this.exit.UseVisualStyleBackColor = true;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // adminPanel
             // 
@@ -147,6 +158,7 @@ namespace lab1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exit);
             this.Controls.Add(this.statusOrder);
             this.Controls.Add(this.workersList);
             this.Controls.Add(this.chooseStatus);
@@ -172,5 +184,6 @@ namespace lab1
         private System.Windows.Forms.ComboBox workersList;
         private System.Windows.Forms.ComboBox statusOrder;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button exit;
     }
 }

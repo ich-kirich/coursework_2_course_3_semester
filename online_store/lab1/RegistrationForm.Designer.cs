@@ -37,6 +37,7 @@ namespace lab1
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.toLog = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@ namespace lab1
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.toLog);
             this.panel1.Controls.Add(this.toLogin);
             this.panel1.Controls.Add(this.passField_reg);
             this.panel1.Controls.Add(this.re);
@@ -126,6 +128,16 @@ namespace lab1
             this.label1.Text = "Регистрация Аккаунта";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // toLog
+            // 
+            this.toLog.Location = new System.Drawing.Point(644, 378);
+            this.toLog.Name = "toLog";
+            this.toLog.Size = new System.Drawing.Size(131, 38);
+            this.toLog.TabIndex = 10;
+            this.toLog.Text = "К авторизации";
+            this.toLog.UseVisualStyleBackColor = true;
+            this.toLog.Click += new System.EventHandler(this.toLog_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,5 +164,6 @@ namespace lab1
         private System.Windows.Forms.TextBox loginField_reg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button toLogin;
+        private System.Windows.Forms.Button toLog;
     }
 }

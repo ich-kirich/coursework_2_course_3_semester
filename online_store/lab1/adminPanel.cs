@@ -181,5 +181,10 @@ namespace lab1
                 }
             }
         }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+        }
     }
 }

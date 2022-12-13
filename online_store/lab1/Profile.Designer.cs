@@ -42,6 +42,7 @@ namespace lab1
             this.label4 = new System.Windows.Forms.Label();
             this.labelLoginUser = new System.Windows.Forms.Label();
             this.buttonToBuy = new System.Windows.Forms.Button();
+            this.userOrders = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -144,12 +145,23 @@ namespace lab1
             this.buttonToBuy.UseVisualStyleBackColor = true;
             this.buttonToBuy.Click += new System.EventHandler(this.buttonToBuy_Click);
             // 
+            // userOrders
+            // 
+            this.userOrders.Location = new System.Drawing.Point(509, 18);
+            this.userOrders.Name = "userOrders";
+            this.userOrders.Size = new System.Drawing.Size(161, 43);
+            this.userOrders.TabIndex = 6;
+            this.userOrders.Text = "Мои заказы";
+            this.userOrders.UseVisualStyleBackColor = true;
+            this.userOrders.Click += new System.EventHandler(this.userOrders_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.userOrders);
             this.Controls.Add(this.labelLoginUser);
             this.Controls.Add(this.buttonToBuy);
             this.Controls.Add(this.buttonToLogin);
@@ -182,5 +194,6 @@ namespace lab1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelLoginUser;
         private System.Windows.Forms.Button buttonToBuy;
+        private System.Windows.Forms.Button userOrders;
     }
 }

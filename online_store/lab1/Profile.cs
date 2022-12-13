@@ -100,5 +100,12 @@ namespace lab1
         {
             Environment.Exit(1);
         }
+
+        private void userOrders_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            userOrders userOrdersForm = new userOrders();
+            userOrdersForm.Show();
+        }
     }
 }

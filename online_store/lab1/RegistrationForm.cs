@@ -51,5 +51,12 @@ namespace lab1
         {
             Environment.Exit(1);
         }
+
+        private void toLog_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.Show();
+        }
     }
 }
