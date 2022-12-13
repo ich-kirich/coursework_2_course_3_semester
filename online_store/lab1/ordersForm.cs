@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -66,51 +67,101 @@ namespace lab1
 
         private void order_Click(object sender, EventArgs e)
         {
-            ListView.CheckedListViewItemCollection selectedGoods = basketList.CheckedItems;
-            if (selectedGoods.Count <= 0)
+            if (checkBalance())
             {
-                MessageBox.Show(
-                    "Выберите товары, которые хотите заказать!",
-                    "Выберите товары",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.None,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly
-                );
+                ListView.CheckedListViewItemCollection selectedGoods = basketList.CheckedItems;
+                if (selectedGoods.Count <= 0)
+                {
+                    MessageBox.Show(
+                        "Выберите товары, которые хотите заказать!",
+                        "Выберите товары",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
+                else
+                {
+                    StreamReader f = new StreamReader(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
+                    string user = "";
+                    while (!f.EndOfStream)
+                    {
+                        user = f.ReadLine();
+                    }
+                    f.Close();
+                    string path = Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt";
+                    string goods = "";
+                    string worker = "Не назначен";
+                    string statusOrder = "В процессе рассмотрения";
+                    int idGood = createId();
+                    if (File.Exists(path))
+                    {
+                        File.AppendAllText(path, idGood + "/" + user + "/" + worker + "/" + statusOrder + "/");
+                        foreach (ListViewItem item in selectedGoods)
+                        {
+                            string res = item.SubItems[0].Text + "_" + Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));
+                            goods += res + "/";
+                        }
+                        File.AppendAllText(path, goods + "\n");
+                    }
+                    MessageBox.Show(
+                        "Заказ сделан",
+                        "Заказ сделан!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.None,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly
+                    );
+                }
             }
             else
             {
-                StreamReader f = new StreamReader(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
-                string user = "";
-                while (!f.EndOfStream)
-                {
-                    user = f.ReadLine();
-                }
-                f.Close();
-                string path = Directory.GetCurrentDirectory() + @"\files\ordersInProgress.txt";
-                string goods = "";
-                string worker = "Не назначен";
-                string statusOrder = "В процессе рассмотрения";
-                int idGood = createId();
-                if (File.Exists(path))
-                {
-                    File.AppendAllText(path, idGood + "/" + user + "/" + worker + "/" + statusOrder + "/");
-                    foreach (ListViewItem item in selectedGoods)
-                    {
-                        string res = item.SubItems[0].Text + "_" + Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));
-                        goods += res + "/";
-                    }
-                    File.AppendAllText(path, goods + "\n");
-                }
                 MessageBox.Show(
-                    "Заказ сделан",
-                    "Заказ сделан!",
+                    "Недостаточно средств на вашем счету",
+                    "Недостаточно средств на вашем счету!",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,
                     MessageBoxOptions.DefaultDesktopOnly
                 );
             }
+        }
+
+        private bool checkBalance()
+        {
+            string[] usersBalance = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+            string[] currentUser = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\localStorage.txt");
+            for (int i = 0; i < usersBalance.Length; i++)
+            {
+                string[] userBalance = usersBalance[i].Split(' ');
+                if (userBalance[0] == currentUser[0])
+                {
+                    string numberOnly = resultPrice.Text;
+                    numberOnly = Regex.Replace(numberOnly, "[^0-9,-]+", "");
+                    if (Convert.ToInt32(numberOnly) <= Convert.ToInt32(userBalance[1]))
+                    {
+                        int updateBalance = Convert.ToInt32(userBalance[1]) - Convert.ToInt32(numberOnly);
+                        string updateUser = currentUser[0] + " " + updateBalance;
+                        string str = string.Empty;
+                        using (StreamReader reader = File.OpenText(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                        {
+                            str = reader.ReadToEnd();
+                        }
+                        str = str.Replace(usersBalance[i], updateUser);
+                        using (StreamWriter file = new StreamWriter(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt"))
+                        {
+                            file.Write(str);
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
         }
 
         private void upgateCountGood_Click(object sender, EventArgs e)

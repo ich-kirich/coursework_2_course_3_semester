@@ -98,7 +98,7 @@ namespace lab1
             // 
             this.columnHeader4.Text = "Статус Заказа";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 120;
+            this.columnHeader4.Width = 150;
             // 
             // chooseWorker
             // 
