@@ -74,7 +74,7 @@ namespace lab1
                 {
                     MessageBox.Show(
                         "Выберите товары, которые хотите заказать!",
-                        "Выберите товары",
+                        "Ошибка оформления заказа",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -106,8 +106,8 @@ namespace lab1
                         File.AppendAllText(path, goods + "\n");
                     }
                     MessageBox.Show(
-                        "Заказ сделан",
                         "Заказ сделан!",
+                        "Заказ успешно оформлен",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -118,8 +118,8 @@ namespace lab1
             else
             {
                 MessageBox.Show(
-                    "Недостаточно средств на вашем счету",
                     "Недостаточно средств на вашем счету!",
+                    "Ошибка оформления заказа",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,
@@ -171,8 +171,8 @@ namespace lab1
                 if (inputCountGood.Text.Length >= 4)
                 {
                     MessageBox.Show(
-                       "Нельзя купить больше 100 шт. товара",
-                       "Нельзя купить больше 100 шт. товара",
+                       "Нельзя купить больше 100 шт. товара!",
+                       "Ошибка выбора количества товара",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.None,
                        MessageBoxDefaultButton.Button1,
@@ -186,7 +186,7 @@ namespace lab1
                     {
                         MessageBox.Show(
                             "Выберите товар!",
-                            "Выберите товар",
+                            "Ошибка выбора количества товара",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.None,
                             MessageBoxDefaultButton.Button1,
@@ -205,8 +205,8 @@ namespace lab1
                 else
                 {
                     MessageBox.Show(
-                        "Введите число, большее нуля, но меньшее 100",
-                        "Введите число, большее нуля, но меньшее 100",
+                        "Введите число, большее нуля, но меньшее 100!",
+                        "Ошибка выбора количества товара",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -217,8 +217,8 @@ namespace lab1
             else
             {
                 MessageBox.Show(
-                    "Введите целое число",
-                    "Введите целое число",
+                    "Введите целое число!",
+                    "Ошибка выбора количества товара",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,

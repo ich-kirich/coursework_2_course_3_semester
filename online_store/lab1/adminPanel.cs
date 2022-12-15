@@ -51,7 +51,7 @@ namespace lab1
             {
                 MessageBox.Show(
                     "Выберите заказ!",
-                    "Выберите заказ",
+                    "Ошибка записи заказа",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,
@@ -93,7 +93,7 @@ namespace lab1
                     }
                     MessageBox.Show(
                         "Заказ записан!",
-                        "Заказ записан!",
+                        "Запись успешно осуществлена",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -114,7 +114,7 @@ namespace lab1
             {
                 MessageBox.Show(
                     "Выберите работника!",
-                    "Выберите работника",
+                    "Ошибка назначения работника",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,
@@ -128,7 +128,7 @@ namespace lab1
                 {
                     MessageBox.Show(
                         "Выберите заказ!",
-                        "Выберите заказ",
+                        "Ошибка назначения работника",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -151,7 +151,7 @@ namespace lab1
             {
                 MessageBox.Show(
                     "Выберите статус заказа!",
-                    "Выберите статус заказа",
+                    "Ошибка изменения статуса",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.None,
                     MessageBoxDefaultButton.Button1,
@@ -165,7 +165,7 @@ namespace lab1
                 {
                     MessageBox.Show(
                         "Выберите заказ!",
-                        "Выберите заказ",
+                        "Ошибка изменения статуса",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,

@@ -30,6 +30,7 @@ namespace lab1
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toLog = new System.Windows.Forms.Button();
             this.toLogin = new System.Windows.Forms.Button();
             this.passField_reg = new System.Windows.Forms.TextBox();
             this.re = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@ namespace lab1
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.toLog = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +57,16 @@ namespace lab1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // toLog
+            // 
+            this.toLog.Location = new System.Drawing.Point(644, 378);
+            this.toLog.Name = "toLog";
+            this.toLog.Size = new System.Drawing.Size(131, 38);
+            this.toLog.TabIndex = 10;
+            this.toLog.Text = "К авторизации";
+            this.toLog.UseVisualStyleBackColor = true;
+            this.toLog.Click += new System.EventHandler(this.toLog_Click);
             // 
             // toLogin
             // 
@@ -127,16 +137,6 @@ namespace lab1
             this.label1.TabIndex = 0;
             this.label1.Text = "Регистрация Аккаунта";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toLog
-            // 
-            this.toLog.Location = new System.Drawing.Point(644, 378);
-            this.toLog.Name = "toLog";
-            this.toLog.Size = new System.Drawing.Size(131, 38);
-            this.toLog.TabIndex = 10;
-            this.toLog.Text = "К авторизации";
-            this.toLog.UseVisualStyleBackColor = true;
-            this.toLog.Click += new System.EventHandler(this.toLog_Click);
             // 
             // RegistrationForm
             // 

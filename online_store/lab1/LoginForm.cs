@@ -49,7 +49,7 @@ namespace lab1
                 {
                     MessageBox.Show(
                         "Неверный логин или пароль",
-                        "Неверный логин или пароль",
+                        "Ошибка входа в аккаунт",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,

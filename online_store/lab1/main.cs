@@ -78,8 +78,8 @@ namespace lab1
             if (!isGood)
             {
                 MessageBox.Show(
-                   "Выберите продукт",
                    "Выберите продукт!",
+                   "Ошибка добавления продукта в корзину",
                    MessageBoxButtons.OK,
                    MessageBoxIcon.None,
                    MessageBoxDefaultButton.Button1,
@@ -92,8 +92,8 @@ namespace lab1
                 {
                     product.addToBusket(Convert.ToInt32(priceGood.Text));
                     MessageBox.Show(
-                        "Продукт добавлен в корзину",
                         "Продукт добавлен в корзину!",
+                        "Продукт успешно добавлен в корзину",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
@@ -103,8 +103,8 @@ namespace lab1
                 else
                 {
                     MessageBox.Show(
-                       "Продукт уже добавлен в корзину",
                        "Продукт уже добавлен в корзину!",
+                       "Ошибка добавления продукта в корзину",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.None,
                        MessageBoxDefaultButton.Button1,

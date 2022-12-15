@@ -91,12 +91,6 @@ namespace lab1
             }
         } // выбор цены для товара
 
-        public int resultPrice(int count)
-        {
-            int resultPrice = count * price;
-            return resultPrice;
-        } // подсчет итоговой цены за товары
-
         public void addToBusket(int resultPrice)
         {
             const int defaultCountGood = 1;
