@@ -40,7 +40,7 @@ namespace lab1
 
         private bool usernameIsExists(string newUser)
         {
-            string[] users = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\usersBalance.txt");
+            string[] users = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\users.txt");
             for (int i = 0; i < users.Length; i++)
             {
                 string[] user = users[i].Split(' ');
