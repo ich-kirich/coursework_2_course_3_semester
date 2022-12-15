@@ -121,7 +121,7 @@ namespace lab1
             {
                 for (int j = 0; j < product.getProductsBusket().Count; j++)
                 {
-                    File.AppendAllText(path, product.getProductsBusket()[j] + "\n");
+                    File.AppendAllText(path, "\n" + product.getProductsBusket()[j]);
                 }
             }
             this.Hide();

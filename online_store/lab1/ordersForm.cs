@@ -21,11 +21,6 @@ namespace lab1
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
-            if (File.Exists(path))
-            {
-                File.WriteAllText(path, string.Empty);
-            }
             Environment.Exit(1);
         }
 
@@ -39,7 +34,7 @@ namespace lab1
         private void ordersForm_Load(object sender, EventArgs e)
         {
             string[] basketGoods = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\files\basket.txt");
-            for (int i = 0; i < basketGoods.Length; i++)
+            for (int i = 1; i < basketGoods.Length; i++)
             {
                 string[] goods = basketGoods[i].Split('_');
                 string userName = goods[0];
@@ -49,7 +44,6 @@ namespace lab1
                 var listViewItem = new ListViewItem(row);
                 basketList.Items.Add(listViewItem);
             }
-            updatePrice();
         }
 
         private int createId()
@@ -229,12 +223,18 @@ namespace lab1
 
         private void updatePrice()
         {
+            ListView.CheckedListViewItemCollection checkedItems = basketList.CheckedItems;
             int price = 0;
-            foreach (ListViewItem item in basketList.Items)
+            foreach (ListViewItem item in checkedItems)
             {
                 price += Convert.ToInt32(item.SubItems[1].Text.Replace("р.", "")) * Convert.ToInt32(item.SubItems[2].Text.Replace("шт.", ""));
             }
             resultPrice.Text = "Итоговая цена: " + price.ToString() + "р.";
+        }
+
+        private void countPrice_Click(object sender, EventArgs e)
+        {
+            updatePrice();
         }
     }
 }

@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Windows.Forms;
+
 namespace lab1
 {
     partial class ordersForm
@@ -38,6 +41,7 @@ namespace lab1
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultPrice = new System.Windows.Forms.Label();
+            this.countPrice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // order
@@ -89,7 +93,6 @@ namespace lab1
             this.basketList.FullRowSelect = true;
             this.basketList.HideSelection = false;
             this.basketList.Location = new System.Drawing.Point(0, 0);
-            this.basketList.MultiSelect = false;
             this.basketList.Name = "basketList";
             this.basketList.Size = new System.Drawing.Size(428, 450);
             this.basketList.TabIndex = 12;
@@ -122,12 +125,23 @@ namespace lab1
             this.resultPrice.TabIndex = 13;
             this.resultPrice.Text = "Итоговая цена:";
             // 
+            // countPrice
+            // 
+            this.countPrice.Location = new System.Drawing.Point(439, 151);
+            this.countPrice.Name = "countPrice";
+            this.countPrice.Size = new System.Drawing.Size(127, 41);
+            this.countPrice.TabIndex = 14;
+            this.countPrice.Text = "Посчитать цену заказа";
+            this.countPrice.UseVisualStyleBackColor = true;
+            this.countPrice.Click += new System.EventHandler(this.countPrice_Click);
+            // 
             // ordersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.countPrice);
             this.Controls.Add(this.resultPrice);
             this.Controls.Add(this.basketList);
             this.Controls.Add(this.upgateCountGood);
@@ -152,5 +166,6 @@ namespace lab1
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label resultPrice;
+        private Button countPrice;
     }
 }
