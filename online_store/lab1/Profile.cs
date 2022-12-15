@@ -23,9 +23,20 @@ namespace lab1
             if (TextBoxAddBalance.Text != "")
             {
                 int balance = Convert.ToInt32(labelBalance.Text);
-                if (StringIsDigits(TextBoxAddBalance.Text))
+                if (StringIsDigits(TextBoxAddBalance.Text) && TextBoxAddBalance.Text.Length <= 5)
                 {
                     balance += Convert.ToInt32(TextBoxAddBalance.Text);
+                }
+                else if (TextBoxAddBalance.Text.Length > 5)
+                {
+                    MessageBox.Show(
+                       "Нельзя пополнить баланс за одну операцию более чем на 10000 р.",
+                       "Ошибка пополнения баланса!",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.None,
+                       MessageBoxDefaultButton.Button1,
+                       MessageBoxOptions.DefaultDesktopOnly
+                   );
                 }
                 labelBalance.Text = balance.ToString();
                 TextBoxAddBalance.Clear();
