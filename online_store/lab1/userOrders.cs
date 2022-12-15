@@ -35,7 +35,6 @@ namespace lab1
                 {
                     string idOrder = userOder[0];
                     string userName = userOder[1];
-                    string worker = userOder[2];
                     string status = userOder[3];
                     int priceOrder = 0;
                     for (int j = 4; j < userOder.Length; j++)
@@ -43,7 +42,7 @@ namespace lab1
                         string[] order = userOder[j].Split('_');
                         priceOrder += Convert.ToInt32(order[1]);
                     }
-                    string[] row = { idOrder, userName, priceOrder.ToString(), worker, status };
+                    string[] row = { idOrder, userName, priceOrder.ToString(), status };
                     var listViewItem = new ListViewItem(row);
                     userOrdersList.Items.Add(listViewItem);
                 }

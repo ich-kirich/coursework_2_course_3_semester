@@ -33,21 +33,11 @@ namespace lab1
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
-            if (File.Exists(path))
-            {
-                File.WriteAllText(path, string.Empty);
-            }
             Environment.Exit(1);
         }
 
         private void личныйКабинетToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
-            if (File.Exists(path))
-            {
-                File.WriteAllText(path, string.Empty);
-            }
             this.Hide();
             Profile toProfile = new Profile();
             toProfile.Show();
@@ -55,11 +45,6 @@ namespace lab1
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
-            if (File.Exists(path))
-            {
-                File.WriteAllText(path, string.Empty);
-            }
             Environment.Exit(1);
         }
 

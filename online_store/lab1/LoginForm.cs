@@ -63,5 +63,14 @@ namespace lab1
         {
             Environment.Exit(1);
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory() + @"\files\basket.txt";
+            if (File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+            }
+        }
     }
 }

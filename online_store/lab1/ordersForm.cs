@@ -168,7 +168,18 @@ namespace lab1
         {
             if (inputCountGood.Text.All(char.IsDigit) && inputCountGood.Text != "")
             {
-                if (Convert.ToInt32(inputCountGood.Text) > 0)
+                if (inputCountGood.Text.Length >= 4)
+                {
+                    MessageBox.Show(
+                       "Нельзя купить больше 100 шт. товара",
+                       "Нельзя купить больше 100 шт. товара",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.None,
+                       MessageBoxDefaultButton.Button1,
+                       MessageBoxOptions.DefaultDesktopOnly
+                   );
+                }
+                else if (Convert.ToInt32(inputCountGood.Text) > 0 && Convert.ToInt32(inputCountGood.Text) <= 100)
                 {
                     ListView.CheckedListViewItemCollection checkedItems = basketList.CheckedItems;
                     if (checkedItems.Count <= 0)
@@ -194,8 +205,8 @@ namespace lab1
                 else
                 {
                     MessageBox.Show(
-                        "Введите число, большее нуля",
-                        "Введите число, большее нуля",
+                        "Введите число, большее нуля, но меньшее 100",
+                        "Введите число, большее нуля, но меньшее 100",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.None,
                         MessageBoxDefaultButton.Button1,
